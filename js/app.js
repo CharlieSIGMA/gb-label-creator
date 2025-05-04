@@ -2,6 +2,7 @@ const preview = document.getElementById('preview');
 const select  = document.getElementById('templateSelect');
 const serialI = document.getElementById('serialInput');
 const dlBtn   = document.getElementById('downloadBtn');
+const charCount = document.getElementById('charCount');
 
 // 1) Load chosen SVG inline
 async function loadSVG(name) {
@@ -36,6 +37,23 @@ dlBtn.addEventListener('click', () => {
   a.click();
   URL.revokeObjectURL(url);
 });
+
+function bindInputs() {
+  const serialTxt = preview.querySelector('#serial');
+
+  serialI.addEventListener('input', () => {
+    // Slice any pasted input down to 11 chars (just in case)
+    if (serialI.value.length > 11) {
+      serialI.value = serialI.value.slice(0, 11);
+    }
+
+    // Update SVG text
+    if (serialTxt) serialTxt.textContent = serialI.value;
+
+    // Update counter
+    charCount.textContent = serialI.value.length;
+  });
+}
 
 // init
 loadSVG(select.value).then(bindInputs);
