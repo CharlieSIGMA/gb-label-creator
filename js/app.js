@@ -1,8 +1,3 @@
-// js/app.js
-
-// 0) Load opentype.js beforehand in your HTML:
-// <script src="https://cdn.jsdelivr.net/npm/opentype.js@1.3.4/dist/opentype.min.js"></script>
-
 // grab DOM elements
 const preview   = document.getElementById('preview');
 const select    = document.getElementById('templateSelect');
