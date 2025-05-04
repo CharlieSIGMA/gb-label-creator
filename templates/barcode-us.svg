@@ -6,6 +6,7 @@
       .st0 {
         font-family: OCRB, 'OCR B Sharp';
         font-size: 5.8px;
+        letter-spacing: -0.023em;
       }
 
       .st0, .st1 {
