@@ -48,8 +48,21 @@ select.addEventListener('change', () => {
 });
 
 // 4) download the current SVG
-dlBtn.addEventListener('click', () => {
-  const svgEl  = preview.querySelector('svg');
+// New: load both fonts once
+let ocrFont, barcodeFont;
+Promise.all([
+  opentype.load('/fonts/OCRBS.otf').then(f => ocrFont = f),
+  opentype.load('/fonts/LibreBarcode39-Regular.ttf').then(f => barcodeFont = f)
+]).catch(console.error);
+
+// Replace your dlBtn click-handler with:
+dlBtn.addEventListener('click', async () => {
+  const svgEl = preview.querySelector('svg');
+
+  // 1) convert all <text> → <path>
+  outlineText(svgEl);
+
+  // 2) serialize & download
   const svgStr = new XMLSerializer().serializeToString(svgEl);
   const blob   = new Blob([svgStr], { type: 'image/svg+xml' });
   const url    = URL.createObjectURL(blob);
@@ -59,6 +72,44 @@ dlBtn.addEventListener('click', () => {
   a.click();
   URL.revokeObjectURL(url);
 });
+
+function outlineText(svgEl) {
+  // getComputedStyle helper
+  const cs = el => window.getComputedStyle(el).fontSize;
+
+  // grab every text node
+  const texts = Array.from(svgEl.querySelectorAll('text'));
+  texts.forEach(textEl => {
+    const str    = textEl.textContent || '';
+    const id     = textEl.id;         // “serial” or “barcode”
+    const x      = parseFloat(textEl.getAttribute('x') || '0');
+    const y      = parseFloat(textEl.getAttribute('y') || '0');
+
+    // measure the font size in pixels from computed style
+    const sizePx = parseFloat(cs(textEl));
+
+    // pick the right font
+    const font = id === 'barcode' ? barcodeFont : ocrFont;
+    if (!font) return; // not yet loaded
+
+    // generate the outline path
+    const path = font.getPath(str, x, y, sizePx);
+    const d    = path.toPathData(2);
+
+    // make a <path> that carries over fill/fill-opacity/etc.
+    const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    p.setAttribute('d', d);
+    // copy relevant style attributes
+    ['fill','fill-opacity','stroke','stroke-width'].forEach(attr => {
+      if (textEl.hasAttribute(attr)) {
+        p.setAttribute(attr, textEl.getAttribute(attr));
+      }
+    });
+
+    // replace the <text> with our outlined <path>
+    svgEl.replaceChild(p, textEl);
+  });
+}
 
 // 5) initial load
 loadSVG(select.value).then(bindInputs);
