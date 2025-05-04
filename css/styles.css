@@ -7,6 +7,7 @@
 }
 
 /* Make sure your in-page <svg> picks it up: */
-#preview svg text {
+#preview svg text#serial {
   font-family: 'OCR B Sharp', monospace;
+  letter-spacing: -0.023em;
 }
