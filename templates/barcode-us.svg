@@ -15,6 +15,7 @@
         font-family: 'OCRB';
         font-size: 5.8px;
         letter-spacing: -0.023em;
+        text-transform: uppercase;
       }
 	  
       text#barcode {
@@ -23,6 +24,7 @@
         font-size: 15.05pt;
         font-weight: 400;
         font-style: normal;
+        text-transform: uppercase;
       }
       ]]>
     </style>
