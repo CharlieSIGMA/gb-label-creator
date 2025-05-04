@@ -54,27 +54,51 @@ const fontsLoaded = Promise.all([
 // 5) Helper to convert text → paths
 function outlineText(svgEl) {
   const cs = el => window.getComputedStyle(el).fontSize;
+
+  // Find every TEXT node
   Array.from(svgEl.querySelectorAll('text')).forEach(textEl => {
     const str    = textEl.textContent || '';
-    const id     = textEl.id;
+    const id     = textEl.id;                 // serial or barcode
+    const font   = id === 'barcode' ? barcodeFont : ocrFont;
+    if (!font) return;                        // font still loading?
+
+    // 1) Figure out the font-size in px
+    const sizePx = parseFloat(cs(textEl));
+
+    // 2) Grab any SVG-level transforms
+    //    This includes inline transform on <text> AND on its parent <g>
+    const ownXf  = textEl.getAttribute('transform') || '';
+    const parentXf = textEl.parentNode.tagName === 'g'
+                   ? (textEl.parentNode.getAttribute('transform') || '')
+                   : '';
+    const combinedTransform = [parentXf, ownXf].filter(Boolean).join(' ');
+
+    // 3) Calculate the text’s “logical” x,y position
+    //    (we ignore letter-spacing here, since barcode has none)
     const x      = parseFloat(textEl.getAttribute('x') || 0);
     const y      = parseFloat(textEl.getAttribute('y') || 0);
-    const sizePx = parseFloat(cs(textEl));
-    const font   = id === 'barcode' ? window.barcodeFont : window.ocrFont;
-    if (!font) return; // fonts not ready
 
-    const path = font.getPath(str, x, y, sizePx);
-    const d    = path.toPathData(2);
-    const p    = document.createElementNS('http://www.w3.org/2000/svg','path');
+    // 4) Generate the outline path
+    const path   = font.getPath(str, x, y, sizePx);
+    const d      = path.toPathData(2);
+
+    // 5) Create a <path> element and carry over style + transform
+    const p      = document.createElementNS(svgEl.namespaceURI, 'path');
     p.setAttribute('d', d);
 
-    // carry over fill/stroke if any
+    // carry fill/stroke
     ['fill','fill-opacity','stroke','stroke-width'].forEach(attr => {
       if (textEl.hasAttribute(attr)) {
         p.setAttribute(attr, textEl.getAttribute(attr));
       }
     });
 
+    // **bake in the SVG transforms** rather than relying on CSS
+    if (combinedTransform) {
+      p.setAttribute('transform', combinedTransform);
+    }
+
+    // 6) Replace the TEXT with our PATH
     svgEl.replaceChild(p, textEl);
   });
 }
