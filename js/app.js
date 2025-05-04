@@ -51,61 +51,56 @@ const fontsLoaded = Promise.all([
   opentype.load('fonts/LibreBarcode39-Regular.ttf').then(f => window.barcodeFont = f)
 ]).catch(console.error);
 
-// 5) Helper to convert text → paths
+// 5) Helper to convert text → paths, preserving letter-spacing for #serial
 function outlineText(svgEl) {
-  const cs = el => window.getComputedStyle(el).fontSize;
-
-  // Find every TEXT node
+  const px = s => parseFloat(window.getComputedStyle(s).fontSize);        // gets font-size in px
+  const ls = s => parseFloat(window.getComputedStyle(s).letterSpacing);   // gets letter-spacing in px
+  
   Array.from(svgEl.querySelectorAll('text')).forEach(textEl => {
     const str    = textEl.textContent || '';
-    const id     = textEl.id;                 // serial or barcode
+    const id     = textEl.id;  
     const font   = id === 'barcode' ? barcodeFont : ocrFont;
-    if (!font) return;                        // font still loading?
+    if (!font) return;  // fonts not ready
 
-    // 1) Figure out the font-size in px
-    const sizePx = parseFloat(cs(textEl));
+    // text position
+    const x0      = parseFloat(textEl.getAttribute('x') || 0);
+    const y       = parseFloat(textEl.getAttribute('y') || 0);
+    const sizePx  = px(textEl);
+    const spacing = id === 'serial' ? ls(textEl) : 0;   // only for OCRB text
 
-    // 2) Grab any SVG-level transforms
-    //    This includes inline transform on <text> AND on its parent <g>
-    const ownXf  = textEl.getAttribute('transform') || '';
-    const parentXf = textEl.parentNode.tagName === 'g'
-                   ? (textEl.parentNode.getAttribute('transform') || '')
-                   : '';
-    const combinedTransform = [parentXf, ownXf].filter(Boolean).join(' ');
-
-    // 3) Calculate the text’s “logical” x,y position
-    //    (we ignore letter-spacing here, since barcode has none)
-    const x      = parseFloat(textEl.getAttribute('x') || 0);
-    const y      = parseFloat(textEl.getAttribute('y') || 0);
-
-    // 4) Generate the outline path
-    const path   = font.getPath(str, x, y, sizePx);
-    const d      = path.toPathData(2);
-
-    // 5) Create a <path> element and carry over style + transform
-    const p      = document.createElementNS(svgEl.namespaceURI, 'path');
-    p.setAttribute('d', d);
-
-    // carry fill/stroke
-    ['fill','fill-opacity','stroke','stroke-width'].forEach(attr => {
-      if (textEl.hasAttribute(attr)) {
-        p.setAttribute(attr, textEl.getAttribute(attr));
-      }
-    });
-
-    // **bake in the SVG transforms** rather than relying on CSS
-    if (combinedTransform) {
-      p.setAttribute('transform', combinedTransform);
+    // collect each glyph’s path at its own x position
+    let cursorX = x0;
+    let combinedD = '';
+    for (let ch of str) {
+      const glyph = font.charToGlyph(ch);
+      const p     = glyph.getPath(cursorX, y, sizePx);
+      combinedD  += p.toPathData(2);
+      // advance cursor: glyph.advanceWidth → EM units.  Convert to px, add tracking
+      cursorX   += (glyph.advanceWidth / font.unitsPerEm) * sizePx + spacing;
     }
 
-    // 6) Replace the TEXT with our PATH
+    // merge transforms
+    const ownXf    = textEl.getAttribute('transform') || '';
+    const parentXf = textEl.parentNode.tagName === 'g'
+                   ? textEl.parentNode.getAttribute('transform')||''
+                   : '';
+    const xf = [parentXf, ownXf].filter(Boolean).join(' ');
+
+    // build the <path>
+    const p = document.createElementNS(svgEl.namespaceURI, 'path');
+    p.setAttribute('d', combinedD);
+    if (xf) p.setAttribute('transform', xf);
+    ['fill','fill-opacity','stroke','stroke-width'].forEach(a => {
+      if (textEl.hasAttribute(a)) p.setAttribute(a, textEl.getAttribute(a));
+    });
+
     svgEl.replaceChild(p, textEl);
   });
 }
 
-// 6) Download → await fonts → outline → serialize
-dlBtn.addEventListener('click', async () => {
-  // wait for fonts before you outline
+// 6) Download → await fonts → outline → serialize → download
+dlBtn.addEventListener('click', async (e) => {
+  e.preventDefault();
   await fontsLoaded;
 
   const svgEl = preview.querySelector('svg');
@@ -114,11 +109,18 @@ dlBtn.addEventListener('click', async () => {
   const svgStr = new XMLSerializer().serializeToString(svgEl);
   const blob   = new Blob([svgStr], { type: 'image/svg+xml' });
   const url    = URL.createObjectURL(blob);
-  const a      = document.createElement('a');
-  a.href       = url;
-  a.download   = 'custom-label.svg';
+
+  // build a real <a> in the DOM so .click() works everywhere
+  const a       = document.createElement('a');
+  a.href        = url;
+  a.download    = 'custom-label.svg';
+  a.style.display = 'none';
+  document.body.appendChild(a);
   a.click();
-  URL.revokeObjectURL(url);
+  document.body.removeChild(a);
+
+  // revoke after giving the browser a beat
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
 
 // 7) Kick things off
