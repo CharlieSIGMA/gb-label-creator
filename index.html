@@ -1,0 +1,20 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Label Customizer</title></head>
+<body>
+  <select id="templateSelect">
+    <option value="label-agb-001.svg">GBA-001 Label</option>
+    <option value="label-barcode.svg">Barcode Label</option>
+  </select>
+
+  <!-- form inputs -->
+  <div id="form">
+    <label>Serial: <input id="serialInput" placeholder="Enter serial"></label>
+    <!-- add more fields as needed -->
+  </div>
+
+  <!-- where we’ll inject the SVG -->
+  <div id="preview"></div>
+
+  <button id="downloadBtn">Download SVG</button>
+
+  <script src="js/app.js"></script>
+</body></html>
