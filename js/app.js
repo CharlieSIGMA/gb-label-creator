@@ -1,59 +1,59 @@
-const preview = document.getElementById('preview');
-const select  = document.getElementById('templateSelect');
-const serialI = document.getElementById('serialInput');
-const dlBtn   = document.getElementById('downloadBtn');
-const charCount = document.getElementById('charCount');
+// js/app.js
 
-// 1) Load chosen SVG inline
+// grab all of our elements once
+const preview   = document.getElementById('preview');
+const select    = document.getElementById('templateSelect');
+const serialI   = document.getElementById('serialInput');
+const charCount = document.getElementById('charCount');
+const dlBtn     = document.getElementById('downloadBtn');
+
+// 1) load an SVG into #preview
 async function loadSVG(name) {
-  const res = await fetch(`templates/${name}`);
+  const res     = await fetch(`templates/${name}`);
   const svgText = await res.text();
   preview.innerHTML = svgText;
 }
 
-// 2) When template or input changes → update SVG text
-select.addEventListener('change', () => {
-  loadSVG(select.value).then(() => {
-    bindInputs();
-  });
-});
-
+// 2) bind your input → update SVG text & counter
 function bindInputs() {
-  serialI.addEventListener('input', () => {
-    const txt = preview.querySelector('#serial');
-    if (txt) txt.textContent = serialI.value;
-  });
-}
-
-// 3) Download the modified SVG
-dlBtn.addEventListener('click', () => {
-  const svgEl = preview.querySelector('svg');
-  const svgStr = new XMLSerializer().serializeToString(svgEl);
-  const blob = new Blob([svgStr], { type: 'image/svg+xml' });
-  const url  = URL.createObjectURL(blob);
-  const a    = document.createElement('a');
-  a.href     = url;
-  a.download = `custom-label.svg`;
-  a.click();
-  URL.revokeObjectURL(url);
-});
-
-function bindInputs() {
+  // find the <text id="serial"> inside the freshly loaded SVG
   const serialTxt = preview.querySelector('#serial');
+  // set the counter to the current value in case of template changes
+  charCount.textContent = serialI.value.length;
 
-  serialI.addEventListener('input', () => {
-    // Slice any pasted input down to 11 chars (just in case)
+  // remove any existing listener before adding a new one
+  serialI.oninput = () => {
+    // enforce maxlength for pasted text
     if (serialI.value.length > 11) {
       serialI.value = serialI.value.slice(0, 11);
     }
 
-    // Update SVG text
-    if (serialTxt) serialTxt.textContent = serialI.value;
-
-    // Update counter
+    // update the SVG
+    if (serialTxt) {
+      serialTxt.textContent = serialI.value;
+    }
+    // update the live counter
     charCount.textContent = serialI.value.length;
-  });
+  };
 }
 
-// init
+// 3) when you switch templates, reload SVG and re-bind
+select.addEventListener('change', () => {
+  loadSVG(select.value).then(bindInputs);
+});
+
+// 4) download the current SVG
+dlBtn.addEventListener('click', () => {
+  const svgEl  = preview.querySelector('svg');
+  const svgStr = new XMLSerializer().serializeToString(svgEl);
+  const blob   = new Blob([svgStr], { type: 'image/svg+xml' });
+  const url    = URL.createObjectURL(blob);
+  const a      = document.createElement('a');
+  a.href       = url;
+  a.download   = `custom-label.svg`;
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+// 5) initial load
 loadSVG(select.value).then(bindInputs);
