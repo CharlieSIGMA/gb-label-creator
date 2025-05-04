@@ -58,18 +58,18 @@ function outlineText(svgEl) {
 
   Array.from(svgEl.querySelectorAll('text')).forEach(textEl => {
     const str    = textEl.textContent || '';
-    const id     = textEl.id; // “serial” or “barcode”
+    const id     = textEl.id;                 // “serial” or “barcode”
     const font   = id === 'barcode' ? barcodeFont : ocrFont;
-    if (!font) return;        // fonts not loaded yet
+    if (!font) return;                        // still loading?
 
-    // starting coords
+    // 1) Glyph metrics
     const x0      = parseFloat(textEl.getAttribute('x') || 0);
     const y       = parseFloat(textEl.getAttribute('y') || 0);
     const sizePx  = px(textEl);
     const spacing = id === 'serial' ? ls(textEl) : 0;
 
-    // build up one big path, respecting letter-spacing
-    let cursorX  = x0;
+    // 2) Build combined path data with tracking baked into the geometry
+    let cursorX   = x0;
     let combinedD = '';
     for (let ch of str) {
       const glyph = font.charToGlyph(ch);
@@ -78,32 +78,33 @@ function outlineText(svgEl) {
       cursorX   += (glyph.advanceWidth / font.unitsPerEm) * sizePx + spacing;
     }
 
-    // bake in any <text> transform *and* its parent <g> transform
-    const ownXf    = textEl.getAttribute('transform') || '';
-    const parent   = textEl.parentNode;
-    const parentXf = parent.tagName === 'g'
-                   ? parent.getAttribute('transform') || ''
-                   : '';
-    const xf       = [parentXf, ownXf].filter(Boolean).join(' ');
+    // 3) Pull transforms off both the <text> and its parent <g>
+    const ownXf     = textEl.getAttribute('transform') || '';
+    const parent    = textEl.parentNode;
+    const parentXf  = parent.tagName === 'g'
+                    ? parent.getAttribute('transform') || ''
+                    : '';
+    const xf        = [parentXf, ownXf].filter(Boolean).join(' ');
 
-    // make the path
+    // 4) Create the <path>, bake in that single combined transform
     const p = document.createElementNS(svgEl.namespaceURI, 'path');
     p.setAttribute('d', combinedD);
     if (xf) p.setAttribute('transform', xf);
 
-    // copy fill/stroke
-    ['fill','fill-opacity','stroke','stroke-width']
-      .forEach(attr => {
-        if (textEl.hasAttribute(attr)) {
-          p.setAttribute(attr, textEl.getAttribute(attr));
-        }
-      });
+    // 5) Copy fill/stroke from the original <text>
+    ['fill','fill-opacity','stroke','stroke-width'].forEach(attr => {
+      if (textEl.hasAttribute(attr)) {
+        p.setAttribute(attr, textEl.getAttribute(attr));
+      }
+    });
 
-    // **Here’s the fix**: replace on the *parent*, not always svgEl
+    // 6) Swap it out, then scrub the group’s transform so it won’t apply twice
     parent.replaceChild(p, textEl);
+    if (parent.tagName === 'g' && parentXf) {
+      parent.removeAttribute('transform');
+    }
   });
 }
-
 
 // 6) Download → await fonts → outline → serialize → download
 dlBtn.addEventListener('click', async e => {
