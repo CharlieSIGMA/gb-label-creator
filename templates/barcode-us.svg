@@ -25,7 +25,7 @@
       }
 	  
       text#barcode {
-        font-family: "Libre Barcode 39"', monospace;
+        font-family: "Libre Barcode 39", monospace;
 	letter-spacing: 0;
 	font-size: 81.6581pt;
         font-weight: 400;
