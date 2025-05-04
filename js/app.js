@@ -53,50 +53,57 @@ const fontsLoaded = Promise.all([
 
 // 5) Helper to convert text → paths, preserving letter-spacing for #serial
 function outlineText(svgEl) {
-  const px = s => parseFloat(window.getComputedStyle(s).fontSize);        // gets font-size in px
-  const ls = s => parseFloat(window.getComputedStyle(s).letterSpacing);   // gets letter-spacing in px
-  
+  const px = el => parseFloat(getComputedStyle(el).fontSize);
+  const ls = el => parseFloat(getComputedStyle(el).letterSpacing);
+
   Array.from(svgEl.querySelectorAll('text')).forEach(textEl => {
     const str    = textEl.textContent || '';
-    const id     = textEl.id;  
+    const id     = textEl.id; // “serial” or “barcode”
     const font   = id === 'barcode' ? barcodeFont : ocrFont;
-    if (!font) return;  // fonts not ready
+    if (!font) return;        // fonts not loaded yet
 
-    // text position
+    // starting coords
     const x0      = parseFloat(textEl.getAttribute('x') || 0);
     const y       = parseFloat(textEl.getAttribute('y') || 0);
     const sizePx  = px(textEl);
-    const spacing = id === 'serial' ? ls(textEl) : 0;   // only for OCRB text
+    const spacing = id === 'serial' ? ls(textEl) : 0;
 
-    // collect each glyph’s path at its own x position
-    let cursorX = x0;
+    // build up one big path, respecting letter-spacing
+    let cursorX  = x0;
     let combinedD = '';
     for (let ch of str) {
       const glyph = font.charToGlyph(ch);
-      const p     = glyph.getPath(cursorX, y, sizePx);
-      combinedD  += p.toPathData(2);
-      // advance cursor: glyph.advanceWidth → EM units.  Convert to px, add tracking
+      const pth   = glyph.getPath(cursorX, y, sizePx);
+      combinedD  += pth.toPathData(2);
       cursorX   += (glyph.advanceWidth / font.unitsPerEm) * sizePx + spacing;
     }
 
-    // merge transforms
+    // bake in any <text> transform *and* its parent <g> transform
     const ownXf    = textEl.getAttribute('transform') || '';
-    const parentXf = textEl.parentNode.tagName === 'g'
-                   ? textEl.parentNode.getAttribute('transform')||''
+    const parent   = textEl.parentNode;
+    const parentXf = parent.tagName === 'g'
+                   ? parent.getAttribute('transform') || ''
                    : '';
-    const xf = [parentXf, ownXf].filter(Boolean).join(' ');
+    const xf       = [parentXf, ownXf].filter(Boolean).join(' ');
 
-    // build the <path>
+    // make the path
     const p = document.createElementNS(svgEl.namespaceURI, 'path');
     p.setAttribute('d', combinedD);
     if (xf) p.setAttribute('transform', xf);
-    ['fill','fill-opacity','stroke','stroke-width'].forEach(a => {
-      if (textEl.hasAttribute(a)) p.setAttribute(a, textEl.getAttribute(a));
-    });
 
-    svgEl.replaceChild(p, textEl);
+    // copy fill/stroke
+    ['fill','fill-opacity','stroke','stroke-width']
+      .forEach(attr => {
+        if (textEl.hasAttribute(attr)) {
+          p.setAttribute(attr, textEl.getAttribute(attr));
+        }
+      });
+
+    // **Here’s the fix**: replace on the *parent*, not always svgEl
+    parent.replaceChild(p, textEl);
   });
 }
+
 
 // 6) Download → await fonts → outline → serialize → download
 dlBtn.addEventListener('click', async (e) => {
