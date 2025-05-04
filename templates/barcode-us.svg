@@ -18,7 +18,7 @@
       }
       <![CDATA[
       @font-face {
-        font-family: 'OCRB';
+        font-family: OCRB, 'OCR B Sharp';
         src: url(data:data:application/x-font-otf;base64,T1RUTwANAIAAAwBQQ0ZGIHCkcRoAAAj4AAArWUZGVE2SjCFQAAA10AAAABxHREVGAL4ABAAANFQA
 AAAgR1BPU7j/uP4AADWgAAAAMEdTVUJ3T2ZqAAA0dAAAASxPUy8yWr4E7wAAAUAAAABgY21hcMIu
 4LgAAAZkAAACcmhlYWQa50CRAAAA3AAAADZoaGVhBsUBSAAAARQAAAAkaG10eCzDJqIAADXsAAAB
