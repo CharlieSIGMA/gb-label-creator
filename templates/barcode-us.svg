@@ -11,6 +11,13 @@
         fill: #a7a7aa;
       }
 
+      @font-face {
+        font-family: 'OCRB';
+        src: url('../fonts/OCRBD.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+      }
+
       text#serial {
         font-family: 'OCRB';
         font-size: 5.8px;
