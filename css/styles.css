@@ -1,13 +1,13 @@
 /* src/css/styles.css */
 @font-face {
-  font-family: 'OCR B Sharp';
-  src: url('../fonts/OCRBD.otf') format('opentype');
+  font-family: 'OCRB';
+  src: url('../fonts/OCRBS.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 /* Make sure your in-page <svg> picks it up: */
 #preview svg text#serial {
-  font-family: 'OCR B Sharp', monospace;
+  font-family: 'OCRB', monospace;
   letter-spacing: -0.023em;
 }
