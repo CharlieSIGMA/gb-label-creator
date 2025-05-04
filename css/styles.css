@@ -1,1 +1,12 @@
+/* src/css/styles.css */
+@font-face {
+  font-family: 'OCRB';
+  src: url('../fonts/OCRB.otf')   format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 
+/* Make sure your in-page <svg> picks it up: */
+#preview svg text {
+  font-family: 'OCRB', monospace;
+}
