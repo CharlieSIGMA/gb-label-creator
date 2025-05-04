@@ -106,19 +106,19 @@ function outlineText(svgEl) {
 
 
 // 6) Download → await fonts → outline → serialize → download
-dlBtn.addEventListener('click', async (e) => {
+dlBtn.addEventListener('click', async e => {
   e.preventDefault();
   await fontsLoaded;
 
-  const svgEl = preview.querySelector('svg');
+  const svgEl  = preview.querySelector('svg');
   outlineText(svgEl);
 
   const svgStr = new XMLSerializer().serializeToString(svgEl);
   const blob   = new Blob([svgStr], { type: 'image/svg+xml' });
   const url    = URL.createObjectURL(blob);
 
-  // build a real <a> in the DOM so .click() works everywhere
-  const a       = document.createElement('a');
+  // append, click, remove
+  const a = document.createElement('a');
   a.href        = url;
   a.download    = 'custom-label.svg';
   a.style.display = 'none';
@@ -126,9 +126,10 @@ dlBtn.addEventListener('click', async (e) => {
   a.click();
   document.body.removeChild(a);
 
-  // revoke after giving the browser a beat
+  // revoke after a short delay
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
+
 
 // 7) Kick things off
 loadSVG(select.value).then(bindInputs);
