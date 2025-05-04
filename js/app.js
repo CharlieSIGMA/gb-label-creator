@@ -121,7 +121,7 @@ dlBtn.addEventListener('click', async e => {
   // append, click, remove
   const a = document.createElement('a');
   a.href        = url;
-  a.download    = 'custom-label.svg';
+  a.download    = 'barcode-us-custom.svg';
   a.style.display = 'none';
   document.body.appendChild(a);
   a.click();
