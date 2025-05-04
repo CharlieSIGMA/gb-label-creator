@@ -5,10 +5,18 @@
   </select>
 
   <!-- form inputs -->
-  <div id="form">
-    <label>Serial: <input id="serialInput" placeholder="Enter serial"></label>
-    <!-- add more fields as needed -->
-  </div>
+<div id="form">
+  <label>
+    Serial:
+    <input
+      id="serialInput"
+      type="text"
+      placeholder="Enter up to 11 chars"
+      maxlength="11"
+    />
+  </label>
+  <small><span id="charCount">0</span>/11</small>
+</div>
 
   <!-- where we’ll inject the SVG -->
   <div id="preview"></div>
