@@ -13,7 +13,7 @@
 
       @font-face {
         font-family: 'OCRB';
-        src: url('../fonts/OCRBD.otf') format('opentype');
+        src: url('../fonts/OCRBS.otf') format('opentype');
         font-weight: normal;
         font-style: normal;
       }
