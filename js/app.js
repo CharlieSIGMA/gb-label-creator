@@ -118,16 +118,22 @@ dlBtn.addEventListener('click', async e => {
   const blob   = new Blob([svgStr], { type: 'image/svg+xml' });
   const url    = URL.createObjectURL(blob);
 
-  // append, click, remove
+  // get the serial, force uppercase
+  const serialRaw = serialI.value || '';
+  const serial    = serialRaw.toUpperCase();
+
+  // build a safe filename
+  const filename = `barcode-us-custom-${serial}.svg`;
+
+  // create, download, and clean up
   const a = document.createElement('a');
-  a.href        = url;
-  a.download    = 'barcode-us-custom.svg';
+  a.href         = url;
+  a.download     = filename;
   a.style.display = 'none';
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
 
-  // revoke after a short delay
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
 
