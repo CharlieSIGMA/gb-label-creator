@@ -18,6 +18,7 @@ async function loadSVG(name) {
 function bindInputs() {
   // find the <text id="serial"> inside the freshly loaded SVG
   const serialTxt = preview.querySelector('#serial');
+  const barcodeTxt = preview.querySelector('#barcode');
   // set the counter to the current value in case of template changes
   charCount.textContent = serialI.value.length;
 
@@ -31,6 +32,10 @@ function bindInputs() {
     // update the SVG
     if (serialTxt) {
       serialTxt.textContent = serialI.value;
+    }
+    // update barcode (wrap in asterisks)
+    if (barcodeTxt) {
+      barcodeTxt.textContent = `*${serialI.value}*`;
     }
     // update the live counter
     charCount.textContent = serialI.value.length;
