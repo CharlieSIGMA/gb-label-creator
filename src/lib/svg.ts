@@ -8,19 +8,22 @@ const fontsPromise = Promise.all([
 ]).then(([ocr, barcode]) => ({ ocr, barcode }));
 
 export function applyFieldValue(svgRoot: SVGElement, field: Field, value: unknown) {
-  const node = svgRoot.querySelector<SVGElement>(field.target);
-  if (!node) return;
+  const nodes = Array.from(svgRoot.querySelectorAll<SVGElement>(field.target));
+  if (!nodes.length) return;
 
   if (field.type === 'text') {
+    const node = nodes[0];
     const raw = String(value ?? '');
     const upper = field.uppercase ? raw.toUpperCase() : raw;
     const next = field.decorate ? field.decorate(upper) : upper;
     node.textContent = next;
   } else if (field.type === 'color') {
-    node.setAttribute('fill', String(value ?? ''));
+    const fillValue = String(value ?? '');
+    nodes.forEach(node => {
+      node.setAttribute('fill', fillValue);
+    });
   }
 }
-
 export function applyTemplateValues(svgHost: HTMLElement, template: TemplateDefinition, values: Record<string, unknown>) {
   const svg = svgHost.querySelector('svg');
   if (!svg) return;
@@ -91,3 +94,4 @@ function outlineText(svg: SVGSVGElement, fonts: OutlineFonts) {
     }
   });
 }
+
