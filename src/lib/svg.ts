@@ -83,14 +83,11 @@ function outlineText(svg: SVGSVGElement, fonts: OutlineFonts) {
       cursor += (glyph.advanceWidth / font.unitsPerEm) * size + tracking;
     }
 
-    const combinedTransform = [textEl.getAttribute('transform'), textEl.parentElement?.getAttribute('transform')]
-      .filter(Boolean)
-      .join(' ')
-      .trim();
+    const textTransform = textEl.getAttribute('transform')?.trim();
 
     const path = document.createElementNS(svg.namespaceURI, 'path');
     path.setAttribute('d', pathData);
-    if (combinedTransform) path.setAttribute('transform', combinedTransform);
+    if (textTransform) path.setAttribute('transform', textTransform);
 
     ['fill', 'fill-opacity', 'stroke', 'stroke-width'].forEach(attr => {
       if (textEl.hasAttribute(attr)) {
@@ -100,9 +97,6 @@ function outlineText(svg: SVGSVGElement, fonts: OutlineFonts) {
 
     const parent = textEl.parentElement;
     parent?.replaceChild(path, textEl);
-    if (parent?.tagName === 'g' && parent.hasAttribute('transform')) {
-      parent.removeAttribute('transform');
-    }
   });
 }
 
