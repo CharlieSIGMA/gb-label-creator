@@ -1,29 +1,40 @@
 // src/lib/svg.ts
 import opentype from 'opentype.js';
-import type { TemplateDefinition, Field } from '../templates/config';
+import type { TemplateDefinition, Field, TextField } from '../templates/config';
 
 const fontsPromise = Promise.all([
   opentype.load('/fonts/OCRBS.otf'),
   opentype.load('/fonts/LibreBarcode39-Regular.ttf')
 ]).then(([ocr, barcode]) => ({ ocr, barcode }));
 
-export function applyFieldValue(svgRoot: SVGElement, field: Field, value: unknown) {
-  const nodes = Array.from(svgRoot.querySelectorAll<SVGElement>(field.target));
-  if (!nodes.length) return;
+function applyTextField(svgRoot: SVGElement, field: TextField, value: unknown) {
+  const raw = String(value ?? '');
+  const base = field.uppercase ? raw.toUpperCase() : raw;
 
+  field.targets.forEach(({ selector, decorate }) => {
+    const textValue = decorate ? decorate(base) : base;
+    const nodes = svgRoot.querySelectorAll<SVGElement>(selector);
+    nodes.forEach(node => {
+      node.textContent = textValue;
+    });
+  });
+}
+
+export function applyFieldValue(svgRoot: SVGElement, field: Field, value: unknown) {
   if (field.type === 'text') {
-    const node = nodes[0];
-    const raw = String(value ?? '');
-    const upper = field.uppercase ? raw.toUpperCase() : raw;
-    const next = field.decorate ? field.decorate(upper) : upper;
-    node.textContent = next;
-  } else if (field.type === 'color') {
+    applyTextField(svgRoot, field, value);
+    return;
+  }
+
+  if (field.type === 'color') {
     const fillValue = String(value ?? '');
+    const nodes = svgRoot.querySelectorAll<SVGElement>(field.target);
     nodes.forEach(node => {
       node.setAttribute('fill', fillValue);
     });
   }
 }
+
 export function applyTemplateValues(svgHost: HTMLElement, template: TemplateDefinition, values: Record<string, unknown>) {
   const svg = svgHost.querySelector('svg');
   if (!svg) return;

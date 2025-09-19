@@ -1,12 +1,16 @@
 // src/templates/config.ts
+export type TextTarget = {
+  selector: string;
+  decorate?: (value: string) => string;
+};
+
 export type TextField = {
   id: string;
   label: string;
   type: 'text';
   maxLength: number;
   uppercase?: boolean;
-  decorate?: (value: string) => string;
-  target: string;
+  targets: TextTarget[];
 };
 
 export type ColorField = {
@@ -34,27 +38,20 @@ export const templates: TemplateDefinition[] = [
     svgPath: '/templates/barcode-us.svg',
     defaults: {
       serial: 'AB123456789',
-      barcode: 'AB123456789',
       primary: '#000000'
     },
     filename: values => `barcode-us-${String(values.serial ?? '').toUpperCase()}.svg`,
     fields: [
       {
         id: 'serial',
-        label: 'Serial',
+        label: 'Serial & Barcode',
         type: 'text',
         maxLength: 11,
         uppercase: true,
-        target: '#serial'
-      },
-      {
-        id: 'barcode',
-        label: 'Barcode',
-        type: 'text',
-        maxLength: 11,
-        uppercase: true,
-        decorate: value => `*${value}*`,
-        target: '#barcode'
+        targets: [
+          { selector: '#serial' },
+          { selector: '#barcode', decorate: value => `*${value}*` }
+        ]
       },
       {
         id: 'primary',
