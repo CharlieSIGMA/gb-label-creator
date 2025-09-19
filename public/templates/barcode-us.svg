@@ -4,14 +4,14 @@
     <style type="text/css">
       <![CDATA[
       @font-face {
-        font-family: 'OCRB', 'OCR B Sharp';
-        src: url('../fonts/OCRBS.otf') format('opentype');
+        font-family: 'OCR-B';
+        src: url('../fonts/OCR-B.otf') format('opentype');
         font-weight: normal;
         font-style: normal;
       }
 
       text#serial {
-        font-family: 'OCRB', 'OCR B Sharp';
+        font-family: 'OCR-B';
         font-size: 5.8px;
         letter-spacing: -0.023em;
         text-transform: uppercase;

@@ -34,13 +34,13 @@ export type TemplateDefinition = {
 export const templates: TemplateDefinition[] = [
   {
     id: 'barcode-us',
-    label: 'Barcode Label (US)',
+    label: 'CGB/AGB Barcode (US)',
     svgPath: '/templates/barcode-us.svg',
     defaults: {
       serial: 'AB123456789',
       primary: '#000000'
     },
-    filename: values => `barcode-us-${String(values.serial ?? '').toUpperCase()}.svg`,
+    filename: values => `agb-cgb-barcode-us-${String(values.serial ?? '').toUpperCase()}.svg`,
     fields: [
       {
         id: 'serial',
