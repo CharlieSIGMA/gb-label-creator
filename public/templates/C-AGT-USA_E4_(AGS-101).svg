@@ -512,6 +512,13 @@
     </g>
   </g>
   <text class="barcode" transform="translate(71.646 24.378) scale(.605 1)" data-primary="ink" fill="#231f20"><tspan x="0" y="0">*AB123456789*</tspan></text>
-  <text class="serial" transform="translate(95.598 35.159)" fill="#231f20"><tspan letter-spacing="-1">AB</tspan><tspan textLength="23.8%" lengthAdjust="spacingAndGlyphs" dx="0.2">12345678</tspan><tspan dx="4.55" textLength="3%" lengthAdjust="spacingAndGlyphs">9</tspan></text>
+  <!--<text class="serial" transform="translate(95.598 35.159)" fill="#231f20"><tspan letter-spacing="-1">AB</tspan><tspan textLength="23.8%" lengthAdjust="spacingAndGlyphs" dx="0.2">12345678</tspan><tspan dx="4.55" textLength="3%" lengthAdjust="spacingAndGlyphs">9</tspan></text>-->
+ 
+  <g transform="translate(95.598 35.159)" fill="#231f20" data-primary="ink" xml:space="preserve">
+    <text data-serial-part="prefix" class="serial" style="letter-spacing: -0.75pt;">AB</text>
+    <text data-serial-part="middle" class="serial" x="12.6" textLength="49px" lengthAdjust="spacingAndGlyphs">12345678</text>
+    <text data-serial-part="suffix" class="serial" x="66.1" textLength="6.2px" lengthAdjust="spacingAndGlyphs">9</text>
+  </g>
+
   <path d="M168.232,26.721v10.055h-6.654v-10.055h6.654M168.732,26.221h-7.654v11.055h7.654v-11.055h0Z" data-primary="ink" fill="#231f20"/>
 </svg>
