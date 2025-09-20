@@ -29,6 +29,7 @@ export type TemplateDefinition = {
   filename: (values: Record<string, unknown>) => string;
   defaults: Record<string, unknown>;
   fields: Field[];
+  hiddenFieldIds?: string[];
 };
 
 export const templates: TemplateDefinition[] = [
@@ -38,7 +39,8 @@ export const templates: TemplateDefinition[] = [
     svgPath: 'templates/barcode-us.svg',
     defaults: {
       serial: 'AB123456789',
-      primary: '#000000'
+      foreground: '#000000',
+      background: '#ffffff',
     },
     filename: values => `agb-cgb-barcode-us-${String(values.serial ?? '').toUpperCase()}.svg`,
     fields: [
@@ -54,11 +56,17 @@ export const templates: TemplateDefinition[] = [
         ]
       },
       {
-        id: 'primary',
-        label: 'Barcode & Serial color',
+        id: 'foreground',
+        label: 'Foreground colour',
         type: 'color',
-        target: '[data-primary="barcode+serial"]'
-      }
+        target: '[data-foreground="foreground"]'
+      },
+      {
+        id: 'background',
+        label: 'Background colour',
+        type: 'color',
+        target: '[data-background="background"]'
+      },
     ]
   },
   {
@@ -67,7 +75,8 @@ export const templates: TemplateDefinition[] = [
     svgPath: 'templates/AGB-JPN.svg',
     defaults: {
       serial: 'AB123456789',
-      primary: '#231f20'
+      foreground: '#ffffff',
+      background: '#231f20',
     },
     filename: values => `agb-jpn-agb-001-${String(values.serial ?? '').toUpperCase()}.svg`,
     fields: [
@@ -83,11 +92,17 @@ export const templates: TemplateDefinition[] = [
         ]
       },
       {
-        id: 'primary',
-        label: 'Serial color',
+        id: 'foreground',
+        label: 'Foreground colour',
         type: 'color',
-        target: '[data-primary="serial"]'
-      }
+        target: '[data-foreground="foreground"]'
+      },
+      {
+        id: 'background',
+        label: 'Background colour',
+        type: 'color',
+        target: '[data-background="background"]'
+      },
     ]
   },
   {
@@ -96,7 +111,8 @@ export const templates: TemplateDefinition[] = [
     svgPath: 'templates/AGB-JPN-1.svg',
     defaults: {
       serial: 'AB123456789',
-      primary: '#231f20'
+      foreground: '#ffffff',
+      background: '#231f20',
     },
     filename: values => `c-agb-jpn-1-agb-001-${String(values.serial ?? '').toUpperCase()}.svg`,
     fields: [
@@ -112,11 +128,17 @@ export const templates: TemplateDefinition[] = [
         ]
       },
       {
-        id: 'primary',
-        label: 'Serial color',
+        id: 'foreground',
+        label: 'Foreground colour',
         type: 'color',
-        target: '[data-primary="serial"]'
-      }
+        target: '[data-foreground="foreground"]'
+      },
+      {
+        id: 'background',
+        label: 'Background colour',
+        type: 'color',
+        target: '[data-background="background"]'
+      },
     ]
   },
   {
@@ -125,7 +147,8 @@ export const templates: TemplateDefinition[] = [
     svgPath: 'templates/AGB-EUR.svg',
     defaults: {
       serial: 'AB123456789',
-      primary: '#231f20'
+      foreground: '#ffffff',
+      background: '#231f20',
     },
     filename: values => `c-agb-eur-agb-001-${String(values.serial ?? '').toUpperCase()}.svg`,
     fields: [
@@ -141,11 +164,17 @@ export const templates: TemplateDefinition[] = [
         ]
       },
       {
-        id: 'primary',
-        label: 'Serial color',
+        id: 'foreground',
+        label: 'Foreground colour',
         type: 'color',
-        target: '[data-primary="serial"]'
-      }
+        target: '[data-foreground="foreground"]'
+      },
+      {
+        id: 'background',
+        label: 'Background colour',
+        type: 'color',
+        target: '[data-background="background"]'
+      },
     ]
   },
   {
@@ -153,79 +182,24 @@ export const templates: TemplateDefinition[] = [
     label: 'C/AGB-USA-1 (AGB-001)',
     svgPath: 'templates/AGB-USA-1.svg',
     defaults: {
-      primary: '#231f20'
+      foreground: '#ffffff',
+      background: '#231f20',
     },
     filename: () => 'c-agb-usa-1-agb-001.svg',
     fields: [
       {
-        id: 'primary',
-        label: 'Serial color',
+        id: 'foreground',
+        label: 'Foreground colour',
         type: 'color',
-        target: '[data-primary="serial"]'
-      }
-    ]
-  },
-  {
-    id: 'c-agt-usa-ags-101',
-    label: 'C/AGT-USA (AGS-101)',
-    svgPath: 'templates/C-AGT-USA_(AGS-101).svg',
-    defaults: {
-      serial: 'AB123456789',
-      primary: '#231f20'
-    },
-    filename: values => `c-agt-usa-ags-101-${String(values.serial ?? '').toUpperCase()}.svg`,
-    fields: [
-      {
-        id: 'serial',
-        label: 'Serial & Barcode',
-        type: 'text',
-        maxLength: 11,
-        uppercase: true,
-        targets: [
-          { selector: '.barcode tspan', decorate: value => `*${value}*` },
-          { selector: '[data-serial-part="prefix"]', decorate: value => value.padEnd(2, ' ').slice(0, 2) },
-          { selector: '[data-serial-part="middle"]', decorate: value => value.padEnd(10, ' ').slice(2, 10) },
-          { selector: '[data-serial-part="suffix"]', decorate: value => value.padEnd(11, ' ').slice(10, 11) }
-        ]
+        target: '[data-foreground="foreground"]'
       },
       {
-        id: 'primary',
-        label: 'Barcode & serial color',
+        id: 'background',
+        label: 'Background colour',
         type: 'color',
-        target: '[data-primary="barcode+serial"]'
-      }
-    ]
-  },
-  {
-    id: 'c-agt-usa-e4-ags-101',
-    label: 'C/AGT-USA E4 (AGS-101)',
-    svgPath: 'templates/C-AGT-USA_E4_(AGS-101).svg',
-    defaults: {
-      serial: 'AB123456789',
-      primary: '#231f20'
-    },
-    filename: values => `c-agt-usa-e4-ags-101-${String(values.serial ?? '').toUpperCase()}.svg`,
-    fields: [
-      {
-        id: 'serial',
-        label: 'Serial & Barcode',
-        type: 'text',
-        maxLength: 11,
-        uppercase: true,
-        targets: [
-          { selector: '.barcode tspan', decorate: value => `*${value}*` },
-          { selector: '[data-serial-part="prefix"]', decorate: value => value.padEnd(2, ' ').slice(0, 2) },
-          { selector: '[data-serial-part="middle"]', decorate: value => value.padEnd(10, ' ').slice(2, 10) },
-          { selector: '[data-serial-part="suffix"]', decorate: value => value.padEnd(11, ' ').slice(10, 11) }
-        ]
+        target: '[data-background="background"]'
       },
-      {
-        id: 'primary',
-        label: 'Barcode & serial color',
-        type: 'color',
-        target: '[data-primary="barcode+serial"]'
-      }
-    ]
+    ],
   },
   {
     id: 'c-ags-usa-ags-001',
@@ -233,7 +207,8 @@ export const templates: TemplateDefinition[] = [
     svgPath: 'templates/C-AGS-USA_(AGS-001).svg',
     defaults: {
       serial: 'AB123456789',
-      primary: '#231f20'
+      foreground: '#ffffff',
+      background: '#231f20',
     },
     filename: values => `c-ags-usa-ags-001-${String(values.serial ?? '').toUpperCase()}.svg`,
     fields: [
@@ -251,11 +226,93 @@ export const templates: TemplateDefinition[] = [
         ]
       },
       {
-        id: 'primary',
-        label: 'Barcode & serial color',
+        id: 'foreground',
+        label: 'Foreground colour',
         type: 'color',
-        target: '[data-primary="barcode+serial"]'
-      }
+        target: '[data-foreground="foreground"]'
+      },
+      {
+        id: 'background',
+        label: 'Background colour',
+        type: 'color',
+        target: '[data-background="background"]'
+      },
+    ]
+  },
+  {
+    id: 'c-agt-usa-ags-101',
+    label: 'C/AGT-USA (AGS-101)',
+    svgPath: 'templates/C-AGT-USA_(AGS-101).svg',
+    defaults: {
+      serial: 'AB123456789',
+      foreground: '#ffffff',
+      background: '#231f20',
+    },
+    filename: values => `c-agt-usa-ags-101-${String(values.serial ?? '').toUpperCase()}.svg`,
+    fields: [
+      {
+        id: 'serial',
+        label: 'Serial & Barcode',
+        type: 'text',
+        maxLength: 11,
+        uppercase: true,
+        targets: [
+          { selector: '.barcode tspan', decorate: value => `*${value}*` },
+          { selector: '[data-serial-part="prefix"]', decorate: value => value.padEnd(2, ' ').slice(0, 2) },
+          { selector: '[data-serial-part="middle"]', decorate: value => value.padEnd(10, ' ').slice(2, 10) },
+          { selector: '[data-serial-part="suffix"]', decorate: value => value.padEnd(11, ' ').slice(10, 11) }
+        ]
+      },
+      {
+        id: 'foreground',
+        label: 'Foreground colour',
+        type: 'color',
+        target: '[data-foreground="foreground"]'
+      },
+      {
+        id: 'background',
+        label: 'Background colour',
+        type: 'color',
+        target: '[data-background="background"]'
+      },
+    ]
+  },
+  {
+    id: 'c-agt-usa-e4-ags-101',
+    label: 'C/AGT-USA E4 (AGS-101)',
+    svgPath: 'templates/C-AGT-USA_E4_(AGS-101).svg',
+    defaults: {
+      serial: 'AB123456789',
+      foreground: '#ffffff',
+      background: '#231f20',
+    },
+    filename: values => `c-agt-usa-e4-ags-101-${String(values.serial ?? '').toUpperCase()}.svg`,
+    fields: [
+      {
+        id: 'serial',
+        label: 'Serial & Barcode',
+        type: 'text',
+        maxLength: 11,
+        uppercase: true,
+        targets: [
+          { selector: '.barcode tspan', decorate: value => `*${value}*` },
+          { selector: '[data-serial-part="prefix"]', decorate: value => value.padEnd(2, ' ').slice(0, 2) },
+          { selector: '[data-serial-part="middle"]', decorate: value => value.padEnd(10, ' ').slice(2, 10) },
+          { selector: '[data-serial-part="suffix"]', decorate: value => value.padEnd(11, ' ').slice(10, 11) }
+        ]
+      },
+      {
+        id: 'foreground',
+        label: 'Foreground colour',
+        type: 'color',
+        target: '[data-foreground="foreground"]'
+      },
+      {
+        id: 'background',
+        label: 'Background colour',
+        type: 'color',
+        target: '[data-background="background"]'
+      },
     ]
   }
 ];

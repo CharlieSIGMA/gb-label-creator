@@ -5,7 +5,7 @@
       <![CDATA[
         @font-face {
           font-family: "OCR-B";
-          src: url('../fonts/OCR-B.otf') format('opentype');
+          src: url('fonts/OCR-B.otf') format('opentype');
           font-weight: normal;
           font-style: normal;
         }
@@ -33,60 +33,64 @@
       ]]>
     </style>
   </defs>
-  <g fill="#000000" data-primary="barcode+serial">
-    <circle cx="89.602" cy="37.326" r=".214" />
-    <circle cx="88.396" cy="37.326" r=".214" />
-    <circle cx="90.807" cy="37.326" r=".214" />
-    <circle cx="92.012" cy="37.326" r=".214" />
-    <circle cx="88.998" cy="36.753" r=".204" />
-    <circle cx="90.203" cy="36.753" r=".204" />
-    <circle cx="91.408" cy="36.753" r=".204" />
-    <circle cx="92.613" cy="36.753" r=".204" />
-    <circle cx="89.602" cy="36.112" r=".198" />
-    <circle cx="88.396" cy="36.112" r=".198" />
-    <circle cx="90.807" cy="36.112" r=".198" />
-    <circle cx="92.012" cy="36.112" r=".198" />
-    <circle cx="88.998" cy="35.496" r=".192" />
-    <circle cx="90.203" cy="35.496" r=".192" />
-    <circle cx="91.408" cy="35.496" r=".192" />
-    <circle cx="92.613" cy="35.496" r=".192" />
-    <circle cx="89.602" cy="34.917" r=".186" />
-    <circle cx="88.396" cy="34.917" r=".186" />
-    <circle cx="90.807" cy="34.917" r=".186" />
-    <circle cx="92.012" cy="34.917" r=".186" />
-    <circle cx="88.998" cy="34.269" r=".179" />
-    <circle cx="90.203" cy="34.269" r=".179" />
-    <circle cx="91.408" cy="34.269" r=".179" />
-    <circle cx="92.613" cy="34.269" r=".179" />
-    <circle cx="89.602" cy="33.752" r=".173" />
-    <circle cx="88.396" cy="33.752" r=".173" />
-    <circle cx="90.807" cy="33.752" r=".173" />
-    <circle cx="92.012" cy="33.752" r=".173" />
-    <circle cx="88.998" cy="33.044" r=".17" />
-    <circle cx="90.203" cy="33.044" r=".17" />
-    <circle cx="91.408" cy="33.044" r=".17" />
-    <circle cx="92.613" cy="33.044" r=".17" />
-    <circle cx="88.396" cy="32.483" r=".154" />
-    <circle cx="89.602" cy="32.483" r=".154" />
-    <circle cx="90.807" cy="32.483" r=".154" />
-    <circle cx="92.012" cy="32.483" r=".154" />
-    <circle cx="88.998" cy="31.922" r=".15" />
-    <circle cx="90.203" cy="31.922" r=".15" />
-    <circle cx="91.408" cy="31.922" r=".15" />
-    <circle cx="92.613" cy="31.922" r=".15" />
-    <circle cx="88.396" cy="31.362" r=".148" />
-    <circle cx="89.602" cy="31.362" r=".148" />
-    <circle cx="90.807" cy="31.362" r=".148" />
-    <circle cx="92.012" cy="31.362" r=".148" />
-    <circle cx="88.998" cy="30.801" r=".142" />
-    <circle cx="90.203" cy="30.801" r=".142" />
-    <circle cx="91.408" cy="30.801" r=".142" />
-    <circle cx="92.613" cy="30.801" r=".142" />
-  </g>
-  <text class="serial" transform="translate(47.8 36.2)" fill="#000000" data-primary="barcode+serial">AB123456789</text>
-  <g width="4.4cm" height="0.85cm" transform="translate(7.937 28.7175)" fill="#000000" data-primary="barcode+serial">
-    <text class="barcode" transform="scale(1,2)">*AB123456789*</text>
-  </g>
-  <rect x="0" y="0" width="140.5" height="40.5" rx="4" fill="none" stroke="#a8a8ab" stroke-width="0.25" stroke-dasharray="0.879" />
-</svg>
-
+  <g>
+    <rect x="0" y="0" width="140.5" height="40.5" rx="4" stroke="#a8a8ab" fill="#fff" stroke-width="0.25" stroke-dasharray="0.879" data-background="background"/>
+    <g data-foreground="foreground" fill="#000000">
+      <g>
+        <circle cx="89.602" cy="37.326" r=".214" />
+        <circle cx="88.396" cy="37.326" r=".214" />
+        <circle cx="90.807" cy="37.326" r=".214" />
+        <circle cx="92.012" cy="37.326" r=".214" />
+        <circle cx="88.998" cy="36.753" r=".204" />
+        <circle cx="90.203" cy="36.753" r=".204" />
+        <circle cx="91.408" cy="36.753" r=".204" />
+        <circle cx="92.613" cy="36.753" r=".204" />
+        <circle cx="89.602" cy="36.112" r=".198" />
+        <circle cx="88.396" cy="36.112" r=".198" />
+        <circle cx="90.807" cy="36.112" r=".198" />
+        <circle cx="92.012" cy="36.112" r=".198" />
+        <circle cx="88.998" cy="35.496" r=".192" />
+        <circle cx="90.203" cy="35.496" r=".192" />
+        <circle cx="91.408" cy="35.496" r=".192" />
+        <circle cx="92.613" cy="35.496" r=".192" />
+        <circle cx="89.602" cy="34.917" r=".186" />
+        <circle cx="88.396" cy="34.917" r=".186" />
+        <circle cx="90.807" cy="34.917" r=".186" />
+        <circle cx="92.012" cy="34.917" r=".186" />
+        <circle cx="88.998" cy="34.269" r=".179" />
+        <circle cx="90.203" cy="34.269" r=".179" />
+        <circle cx="91.408" cy="34.269" r=".179" />
+        <circle cx="92.613" cy="34.269" r=".179" />
+        <circle cx="89.602" cy="33.752" r=".173" />
+        <circle cx="88.396" cy="33.752" r=".173" />
+        <circle cx="90.807" cy="33.752" r=".173" />
+        <circle cx="92.012" cy="33.752" r=".173" />
+        <circle cx="88.998" cy="33.044" r=".17" />
+        <circle cx="90.203" cy="33.044" r=".17" />
+        <circle cx="91.408" cy="33.044" r=".17" />
+        <circle cx="92.613" cy="33.044" r=".17" />
+        <circle cx="88.396" cy="32.483" r=".154" />
+        <circle cx="89.602" cy="32.483" r=".154" />
+        <circle cx="90.807" cy="32.483" r=".154" />
+        <circle cx="92.012" cy="32.483" r=".154" />
+        <circle cx="88.998" cy="31.922" r=".15" />
+        <circle cx="90.203" cy="31.922" r=".15" />
+        <circle cx="91.408" cy="31.922" r=".15" />
+        <circle cx="92.613" cy="31.922" r=".15" />
+        <circle cx="88.396" cy="31.362" r=".148" />
+        <circle cx="89.602" cy="31.362" r=".148" />
+        <circle cx="90.807" cy="31.362" r=".148" />
+        <circle cx="92.012" cy="31.362" r=".148" />
+        <circle cx="88.998" cy="30.801" r=".142" />
+        <circle cx="90.203" cy="30.801" r=".142" />
+        <circle cx="91.408" cy="30.801" r=".142" />
+        <circle cx="92.613" cy="30.801" r=".142" />
+      </g>
+      <g>
+        <text class="serial" transform="translate(47.8 36.2)">AB123456789</text>
+        <g width="4.4cm" height="0.85cm" transform="translate(7.937 28.7175)">
+          <text class="barcode" transform="scale(1,2)">*AB123456789*</text>
+        </g>
+      </g>
+    </g>
+  </svg>

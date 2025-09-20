@@ -11,6 +11,10 @@ export function App() {
   const template = useMemo(() => templateById.get(activeId) ?? templates[0], [activeId]);
   const [values, setValues] = useState<Record<string, unknown>>(template.defaults);
   const svgHostRef = useRef<HTMLDivElement>(null);
+  const visibleFields = useMemo(() => {
+    const hidden = new Set(template.hiddenFieldIds ?? []);
+    return template.fields.filter(field => !hidden.has(field.id));
+  }, [template]);
 
   // reload SVG when changing template
   useEffect(() => {
@@ -45,7 +49,7 @@ export function App() {
           </select>
         </label>
 
-        {template.fields.map(field => (
+        {visibleFields.map(field => (
           <FieldInput
             key={field.id}
             field={field}
