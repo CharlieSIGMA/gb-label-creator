@@ -36,6 +36,22 @@ body, #root {
   font-weight: 600;
 }
 
+.panel .field-color-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.panel .field-color-controls input[type="color"] {
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid #cbd5f5;
+  background: #ffffff;
+  cursor: pointer;
+}
+
 .panel input,
 .panel select {
   font: inherit;
@@ -43,6 +59,32 @@ body, #root {
   border-radius: 8px;
   border: 1px solid #cbd5f5;
   background: #f8fafc;
+}
+
+.panel .field-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid #cbd5f5;
+  background: #e2e8f0;
+  color: #1f2933;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0;
+}
+
+.panel .field-reset svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.panel .field-reset:disabled {
+  opacity: 0.55;
+  cursor: default;
 }
 
 .panel button {

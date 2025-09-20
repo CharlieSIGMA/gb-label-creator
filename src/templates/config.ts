@@ -200,6 +200,7 @@ export const templates: TemplateDefinition[] = [
         target: '[data-background="background"]'
       },
     ],
+    //hiddenFieldIds: ['foreground']
   },
   {
     id: 'c-ags-usa-ags-001',

@@ -54,6 +54,7 @@ export function App() {
             key={field.id}
             field={field}
             value={values[field.id]}
+            defaultValue={template.defaults[field.id]}
             onChange={value => setValues(prev => ({ ...prev, [field.id]: value }))}
           />
         ))}
