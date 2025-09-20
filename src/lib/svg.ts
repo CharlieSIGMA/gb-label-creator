@@ -56,7 +56,7 @@ export async function downloadOutlinedSvg(svg: SVGSVGElement, template: Template
 
   outlineText(clone, { serialFont: ocr, barcodeFont: barcode });
 
-    const exportSvg = clone.cloneNode(true) as SVGSVGElement;
+  const exportSvg = clone.cloneNode(true) as SVGSVGElement;
   exportSvg.removeAttribute('style');
   const serialized = new XMLSerializer().serializeToString(exportSvg);
   svg.parentNode?.removeChild(clone);
@@ -151,9 +151,3 @@ function outlineText(svg: SVGSVGElement, fonts: OutlineFonts) {
     parent?.replaceChild(path, textEl);
   });
 }
-
-
-
-
-
-
