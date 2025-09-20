@@ -29,7 +29,7 @@
       ]]>
     </style>
   </defs>
-  <g fill="#000000" data-primary="ink">
+  <g fill="#000000" data-primary="barcode+serial">
     <circle cx="89.602" cy="37.326" r=".214" />
     <circle cx="88.396" cy="37.326" r=".214" />
     <circle cx="90.807" cy="37.326" r=".214" />
@@ -79,8 +79,8 @@
     <circle cx="91.408" cy="30.801" r=".142" />
     <circle cx="92.613" cy="30.801" r=".142" />
   </g>
-  <text class="serial" transform="translate(47.8 36.2)" fill="#000000" data-primary="ink">AB123456789</text>
-  <g width="4.4cm" height="0.85cm" transform="translate(7.937 28.7175)" fill="#000000" data-primary="ink">
+  <text class="serial" transform="translate(47.8 36.2)" fill="#000000" data-primary="barcode+serial">AB123456789</text>
+  <g width="4.4cm" height="0.85cm" transform="translate(7.937 28.7175)" fill="#000000" data-primary="barcode+serial">
     <text class="barcode" transform="scale(1,2)">*AB123456789*</text>
   </g>
   <rect x="0" y="0" width="140.5" height="40.5" rx="4" fill="none" stroke="#a8a8ab" stroke-width="0.25" stroke-dasharray="0.879" />
