@@ -153,22 +153,10 @@ export const templates: TemplateDefinition[] = [
     label: 'C/AGB-USA-1 (AGB-001)',
     svgPath: '/templates/AGB-USA-1.svg',
     defaults: {
-      //serial: 'AB123456789',
-      //primary: '#231f20'
+      primary: '#231f20'
     },
-    filename: values => `c-agb-eur-agb-001-${String(values.serial ?? '').toUpperCase()}.svg`,
+    filename: () => 'c-agb-eur-agb-001.svg',
     fields: [
-      {
-        id: 'serial',
-        label: 'Serial',
-        type: 'text',
-        maxLength: 11,
-        uppercase: true,
-        targets: [
-          { selector: '[data-serial-part="prefix"]', decorate: value => value.padEnd(2, ' ').slice(0, 2) },
-          { selector: '[data-serial-part="numbers"]', decorate: value => value.padEnd(10, ' ').slice(2, 11) }
-        ]
-      },
       {
         id: 'primary',
         label: 'Serial color',
