@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'OCR B Std', 'ocr-b-std';
+  src: url('fonts/OCR-B.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Libre Barcode 39';
+  src: url('fonts/LibreBarcode39-Regular.ttf') format('TrueType');
+  font-weight: normal;
+  font-style: normal;
+}

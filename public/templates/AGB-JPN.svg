@@ -10,8 +10,15 @@
         font-style: normal;
       }
 
+      @font-face {
+        font-family: 'Libre Barcode 39';
+        src: url('../fonts/LibreBarcode39-Regular.ttf') format('TrueType');
+        font-weight: normal;
+        font-style: normal;
+      }
+
       .serial {
-        font-family: 'OCR B Std','ocr-b-std';
+        font-family: 'OCR B Std';
         font-size: 10.427px;
         letter-spacing: -0.023em;
         text-transform: uppercase;
@@ -55,7 +62,9 @@
     <polyline points="33.4 5.496 32.707 3.696 31.403 3.696 32.74 6.602 32.327 9.21 33.466 9.21 33.813 6.899 35.844 3.696 34.523 3.696 33.4 5.496" fill="#231f20"/>
     <path d="M30.759,6.982c-.297.908-1.04,1.436-1.634,1.172-.594-.264-.825-1.222-.528-2.146.297-.908,1.04-1.436,1.634-1.172.611.281.842,1.238.528,2.146M30.329,3.746c-1.255-.281-2.559.71-2.906,2.229-.347,1.519.38,2.988,1.634,3.285,1.255.297,2.559-.71,2.906-2.229s-.396-2.988-1.634-3.285" fill="#231f20"/>
     <path d="M25.311,5.909h-.792l.182-1.024h.726c.809,0,.66,1.024-.116,1.024M25.179,8.137h-.991l.182-1.09h.941c.892-.017.875,1.09-.132,1.09M25.839,3.729c-.611-.017-2.113,0-2.113,0h.017l-.875,5.465h2.542c1.04,0,2.575-1.535,1.189-2.807,1.42-1.486,0-2.642-.759-2.658" fill="#231f20"/>
-    <text transform="translate(69.435 9.392)" fill="#fff" font-family="HelveticaNeueLTStd-Roman, &apos;Helvetica Neue LT Std&apos;" font-size="2.222"><tspan x="0" y="0">TM</tspan></text>
+    <text transform="translate(69.435 9.392)" fill="#fff" font-family="HelveticaNeueLTStd-Roman, &apos;Helvetica Neue LT Std&apos;" font-size="2.222">
+      <tspan x="0" y="0">TM</tspan>
+    </text>
   </g>
   <g>
     <path d="M129.453,22.509h.54v-2.975h-.54v2.975h0ZM125.938,19.534l-1.682,2.975h-.841v-2.975h.54v2.435l1.381-2.435h.603ZM127.959,19.974c.188,0,.364.038.515.126l-.251.427c-.082-.041-.172-.063-.264-.063-.289,0-.527.239-.527.527s.238.527.527.527c.088,0,.176-.025.251-.063l.251.427c-.151.088-.314.126-.502.126-.559.002-1.015-.449-1.017-1.008,0-.003,0-.006,0-.009-.002-.559.449-1.015,1.008-1.017.003,0,.006,0,.008,0Z" fill="#fff" fill-rule="evenodd"/>
@@ -259,10 +268,10 @@
       <path d="M113.381,7.663c0,1.219-.668,1.95-1.661,1.95-.999,0-1.592-.83-1.592-1.89,0-1.11.652-1.939,1.646-1.939,1.039,0,1.606.851,1.606,1.878ZM110.937,7.707c0,.73.311,1.242.823,1.242.517,0,.812-.539.812-1.258,0-.67-.286-1.241-.812-1.241-.522,0-.823.538-.823,1.258Z" fill="#fff"/>
       <path d="M114.886,6.645h-.011l-.7.333-.142-.644.978-.452h.705v3.67h-.83v-2.908Z" fill="#fff"/>
     </g>
-  <rect x="117.576" y="2.653" width="70.752" height="10.861" fill="#fff"/>
-  <g fill="#231f20" data-primary="serial">
-  <text transform="translate(119.1 12.172) scale(.81 1)" class="serial" style="letter-spacing: -1.2pt;" data-serial-part="prefix">AB</text>
-  <text transform="translate(128.559 12.172)" class="serial" style="letter-spacing: -0.87pt;" data-serial-part="numbers">123456789</text>
-  </g>
+    <rect x="117.576" y="2.653" width="70.752" height="10.861" fill="#fff"/>
+    <g fill="#231f20" data-primary="serial">
+      <text transform="translate(119.1 12.172) scale(.81 1)" class="serial" style="letter-spacing: -1.2pt;" data-serial-part="prefix">AB</text>
+      <text transform="translate(128.559 12.172)" class="serial" style="letter-spacing: -0.87pt;" data-serial-part="numbers">123456789</text>
+    </g>
   </g>
 </svg>
