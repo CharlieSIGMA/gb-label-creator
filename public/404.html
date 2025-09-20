@@ -1,0 +1,6 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><script>
+  // redirect 404s to index preserving path
+  const u = new URL(location.href);
+  const p = u.pathname.replace(/^\/gba-labels/, '');
+  location.replace('/gba-labels/?p=' + encodeURIComponent(p + u.search + u.hash));
+</script></head><body></body></html>
