@@ -35,7 +35,7 @@ export const templates: TemplateDefinition[] = [
   {
     id: 'barcode-us',
     label: 'CGB/AGB Barcode (US)',
-    svgPath: '/templates/barcode-us.svg',
+    svgPath: 'templates/barcode-us.svg',
     defaults: {
       serial: 'AB123456789',
       primary: '#000000'
@@ -64,7 +64,7 @@ export const templates: TemplateDefinition[] = [
   {
     id: 'agb-001-jpn',
     label: 'AGB-JPN (AGB-001)',
-    svgPath: '/templates/AGB-JPN.svg',
+    svgPath: 'templates/AGB-JPN.svg',
     defaults: {
       serial: 'AB123456789',
       primary: '#231f20'
@@ -93,7 +93,7 @@ export const templates: TemplateDefinition[] = [
   {
     id: 'c-agb-001-jpn-1',
     label: 'C/AGB-JPN-1 (AGB-001)',
-    svgPath: '/templates/AGB-JPN-1.svg',
+    svgPath: 'templates/AGB-JPN-1.svg',
     defaults: {
       serial: 'AB123456789',
       primary: '#231f20'
@@ -122,7 +122,7 @@ export const templates: TemplateDefinition[] = [
   {
     id: 'agb-001-eur',
     label: 'C/AGB-EUR (AGB-001)',
-    svgPath: '/templates/AGB-EUR.svg',
+    svgPath: 'templates/AGB-EUR.svg',
     defaults: {
       serial: 'AB123456789',
       primary: '#231f20'
@@ -151,7 +151,7 @@ export const templates: TemplateDefinition[] = [
   {
     id: 'agb-001-usa',
     label: 'C/AGB-USA-1 (AGB-001)',
-    svgPath: '/templates/AGB-USA-1.svg',
+    svgPath: 'templates/AGB-USA-1.svg',
     defaults: {
       primary: '#231f20'
     },
@@ -168,7 +168,7 @@ export const templates: TemplateDefinition[] = [
   {
     id: 'c-agt-usa-ags-101',
     label: 'C/AGT-USA (AGS-101)',
-    svgPath: '/templates/C-AGT-USA_(AGS-101).svg',
+    svgPath: 'templates/C-AGT-USA_(AGS-101).svg',
     defaults: {
       serial: 'AB123456789',
       primary: '#231f20'
@@ -199,7 +199,7 @@ export const templates: TemplateDefinition[] = [
   {
     id: 'c-agt-usa-e4-ags-101',
     label: 'C/AGT-USA E4 (AGS-101)',
-    svgPath: '/templates/C-AGT-USA_E4_(AGS-101).svg',
+    svgPath: 'templates/C-AGT-USA_E4_(AGS-101).svg',
     defaults: {
       serial: 'AB123456789',
       primary: '#231f20'
@@ -230,7 +230,7 @@ export const templates: TemplateDefinition[] = [
   {
     id: 'c-ags-usa-ags-001',
     label: 'C/AGS-USA (AGS-001)',
-    svgPath: '/templates/C-AGS-USA_(AGS-001).svg',
+    svgPath: 'templates/C-AGS-USA_(AGS-001).svg',
     defaults: {
       serial: 'AB123456789',
       primary: '#231f20'
