@@ -155,7 +155,7 @@ export const templates: TemplateDefinition[] = [
     defaults: {
       primary: '#231f20'
     },
-    filename: () => 'c-agb-eur-agb-001.svg',
+    filename: () => 'c-agb-usa-1-agb-001.svg',
     fields: [
       {
         id: 'primary',
