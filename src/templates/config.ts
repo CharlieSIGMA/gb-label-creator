@@ -49,8 +49,8 @@ export const templates: TemplateDefinition[] = [
         maxLength: 11,
         uppercase: true,
         targets: [
-          { selector: '#serial' },
-          { selector: '#barcode', decorate: value => `*${value}*` }
+          { selector: '.serial' },
+          { selector: '.barcode', decorate: value => `*${value}*` }
         ]
       },
       {
@@ -73,12 +73,12 @@ export const templates: TemplateDefinition[] = [
     fields: [
       {
         id: 'serial',
-        label: 'Serial',
+        label: 'Serial & Barcode',
         type: 'text',
         maxLength: 11,
         uppercase: true,
         targets: [
-          { selector: 'text.barcode tspan', decorate: value => `*${value}*` },
+          { selector: '.barcode tspan', decorate: value => `*${value}*` },
           { selector: '[data-serial-part="prefix"]', decorate: value => value.padEnd(2, ' ').slice(0, 2) },
           { selector: '[data-serial-part="middle"]', decorate: value => value.padEnd(10, ' ').slice(2, 10) },
           { selector: '[data-serial-part="suffix"]', decorate: value => value.padEnd(11, ' ').slice(10, 11) }
@@ -93,4 +93,5 @@ export const templates: TemplateDefinition[] = [
     ]
   }
 ];
+
 

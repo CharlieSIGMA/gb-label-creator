@@ -10,7 +10,7 @@
         font-style: normal;
       }
 
-      text#serial {
+      .serial {
         font-family: 'OCR B Std','ocr-b-std';
         font-size: 5.8px;
         letter-spacing: -0.023em;
@@ -18,7 +18,7 @@
         font-variant-numeric: slashed-zero;
       }
 
-      text#barcode {
+      .barcode {
         font-family: "Libre Barcode 39";
         letter-spacing: 0;
         font-size: 15.05pt;
@@ -79,9 +79,10 @@
     <circle cx="91.408" cy="30.801" r=".142" />
     <circle cx="92.613" cy="30.801" r=".142" />
   </g>
-  <text id="serial" transform="translate(47.8 36.2)" fill="#000000" data-primary="ink">AB123456789</text>
+  <text class="serial" transform="translate(47.8 36.2)" fill="#000000" data-primary="ink">AB123456789</text>
   <g width="4.4cm" height="0.85cm" transform="translate(7.937 28.7175)" fill="#000000" data-primary="ink">
-    <text id="barcode" transform="scale(1,2)">*AB123456789*</text>
+    <text class="barcode" transform="scale(1,2)">*AB123456789*</text>
   </g>
   <rect x="0" y="0" width="140.5" height="40.5" rx="4" fill="none" stroke="#a8a8ab" stroke-width="0.25" stroke-dasharray="0.879" />
 </svg>
+
