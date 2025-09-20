@@ -3,8 +3,8 @@ import opentype from 'opentype.js';
 import type { TemplateDefinition, Field, TextField } from '../templates/config';
 
 const fontsPromise = Promise.all([
-  opentype.load('/fonts/OCR-B.otf'),
-  opentype.load('/fonts/LibreBarcode39-Regular.ttf')
+  opentype.load('fonts/OCR-B.otf'),
+  opentype.load('fonts/LibreBarcode39-Regular.ttf')
 ]).then(([ocr, barcode]) => ({ ocr, barcode }));
 
 function applyTextField(svgRoot: SVGElement, field: TextField, value: unknown) {
