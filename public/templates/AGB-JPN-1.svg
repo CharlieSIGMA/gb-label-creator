@@ -3,33 +3,23 @@
   <defs>
     <style type="text/css">
       <![CDATA[
-      @font-face {
-        font-family: 'OCR B Std','ocr-b-std';
-        src: url('../fonts/OCR-B.otf') format('opentype');
-        font-weight: normal;
-        font-style: normal;
-      }
-
-      .serial {
-        font-family: 'OCR B Std','ocr-b-std';
-        font-size: 10.427px;
-        letter-spacing: -0.023em;
-        text-transform: uppercase;
-        font-variant-numeric: slashed-zero;
-      }
-
-      .barcode {
-        font-family: "Libre Barcode 39";
-        letter-spacing: 0;
-        font-size: 32.193px;
-        font-weight: 400;
-        font-style: normal;
-        text-transform: uppercase;
-      }
+        @font-face {
+          font-family: "OCR-B";
+          src: url('../fonts/OCR-B.otf') format('opentype');
+          font-weight: normal;
+          font-style: normal;
+        }
+        .serial {
+          font-family: "OCR-B";
+          font-size: 10.427px;
+          letter-spacing: -0.023em;
+          text-transform: uppercase;
+          font-variant-numeric: slashed-zero;
+        }
       ]]>
     </style>
   </defs>
-<path d="M187.37,0H3.969C1.777,0,0,1.777,0,3.968v8.81c0,1.113.168,2.219.498,3.281l6.653,21.404c.201.647.8,1.088,1.477,1.088h59.279c2.192,0,3.969-1.777,3.969-3.969v-.419c0-2.192,1.777-3.969,3.969-3.969h39.078c2.192,0,3.969,1.777,3.969,3.969v.419c0,2.192,1.777,3.969,3.969,3.969h59.852c.677,0,1.276-.441,1.477-1.088l6.653-21.404c.33-1.062.498-2.169.498-3.281V3.968C191.339,1.777,189.562,0,187.37,0Z" fill="#231f20"/>
+  <path d="M187.37,0H3.969C1.777,0,0,1.777,0,3.968v8.81c0,1.113.168,2.219.498,3.281l6.653,21.404c.201.647.8,1.088,1.477,1.088h59.279c2.192,0,3.969-1.777,3.969-3.969v-.419c0-2.192,1.777-3.969,3.969-3.969h39.078c2.192,0,3.969,1.777,3.969,3.969v.419c0,2.192,1.777,3.969,3.969,3.969h59.852c.677,0,1.276-.441,1.477-1.088l6.653-21.404c.33-1.062.498-2.169.498-3.281V3.968C191.339,1.777,189.562,0,187.37,0Z" fill="#231f20"/>
   <g>
     <path d="M11.071,34.069c-.011-.326-.021-.722-.021-1.116h-.007c-.075.347-.171.733-.26,1.052l-.28,1.06h-.406l-.246-1.048c-.076-.322-.15-.709-.209-1.063h-.007c-.011.366-.024.786-.038,1.124l-.044,1.031h-.481l.146-2.715h.693l.227.906c.074.314.143.652.194.971h.014c.062-.314.14-.673.219-.975l.243-.902h.684l.123,2.715h-.506l-.038-1.039Z" fill="#fff"/>
     <path d="M12.589,34.411l-.164.697h-.537l.701-2.715h.684l.717,2.715h-.563l-.178-.697h-.659ZM13.173,33.952l-.144-.576c-.041-.161-.082-.362-.116-.523h-.007c-.034.161-.068.366-.106.523l-.137.576h.51Z" fill="#fff"/>
@@ -282,8 +272,7 @@
   </g>
   <rect x="117.576" y="2.653" width="70.752" height="10.861" fill="#fff"/>
   <g fill="#231f20" data-primary="serial">
-  <text transform="translate(119.1 12.172) scale(.81 1)" class="serial" style="letter-spacing: -1.2pt;" data-serial-part="prefix">AB</text>
-  <text transform="translate(128.559 12.172)" class="serial" style="letter-spacing: -0.87pt;" data-serial-part="numbers">123456789</text>
-  </g>
+    <text transform="translate(119.1 12.172) scale(.81 1)" class="serial" style="letter-spacing: -1.2pt;" data-serial-part="prefix">AB</text>
+    <text transform="translate(128.559 12.172)" class="serial" style="letter-spacing: -0.87pt;" data-serial-part="numbers">123456789</text>
   </g>
 </svg>

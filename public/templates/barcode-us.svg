@@ -3,29 +3,33 @@
   <defs>
     <style type="text/css">
       <![CDATA[
-      @font-face {
-        font-family: 'OCR B Std','ocr-b-std';
-        src: url('../fonts/OCR-B.otf') format('opentype');
-        font-weight: normal;
-        font-style: normal;
-      }
-
-      .serial {
-        font-family: 'OCR B Std','ocr-b-std';
-        font-size: 5.8px;
-        letter-spacing: -0.023em;
-        text-transform: uppercase;
-        font-variant-numeric: slashed-zero;
-      }
-
-      .barcode {
-        font-family: "Libre Barcode 39";
-        letter-spacing: 0;
-        font-size: 15.05pt;
-        font-weight: 400;
-        font-style: normal;
-        text-transform: uppercase;
-      }
+        @font-face {
+          font-family: "OCR-B";
+          src: url('../fonts/OCR-B.otf') format('opentype');
+          font-weight: normal;
+          font-style: normal;
+        }
+        @font-face {
+          font-family: "Libre Barcode 39";
+          src: url('fonts/LibreBarcode39-Regular.ttf') format('TrueType');
+          font-weight: normal;
+          font-style: normal;
+        }
+        .serial {
+          font-family: "OCR-B";
+          font-size: 5.8px;
+          letter-spacing: -0.023em;
+          text-transform: uppercase;
+          font-variant-numeric: slashed-zero;
+        }
+        .barcode {
+          font-family: "Libre Barcode 39";
+          letter-spacing: 0;
+          font-size: 15.05pt;
+          font-weight: 400;
+          font-style: normal;
+          text-transform: uppercase;
+        }
       ]]>
     </style>
   </defs>
