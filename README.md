@@ -1,69 +1,60 @@
-# React + TypeScript + Vite
+# GBA Labels
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React + Vite app for designing and exporting Game Boy Advance cartridge labels. Pick a template, tweak the serial, colors, and border options, then download a print-ready, correctly sized SVG with all text converted to outlines.
 
-Currently, two official plugins are available:
+## Live site
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- https://charliesigma.github.io/gba-labels/
 
-## Expanding the ESLint configuration
+## Highlights
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Pre-built templates covering multiple GBA shell variants and warning stickers.
+- Real-time SVG preview with pinch-zoom support on touch devices.
+- Editable serial, barcode, and color fields with one-click reset to defaults.
+- Optional border toggle for templates that expose light backgrounds.
+- Downloads outlined SVGs so no fonts are required when printing.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prerequisites
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js 18 or newer
+
+### Install and run the dev server
+
+```
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Vite will print a local URL and a LAN URL; open either in your browser to start editing.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Build for production
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+npm run build
+npm run preview
+```
+
+`npm run build` outputs static assets to `dist/`. Run `npm run preview` to serve that build locally.
+
+## Project layout
+
+- `src/App.tsx` – top-level UI, template selection, and value management.
+- `src/templates/config.ts` – template definitions, default values, and field metadata.
+- `src/lib/svg.ts` – applies field values to loaded SVGs and handles outline export.
+- `public/templates/` – raw SVG template files referenced by the config.
+- `src/assets/global.css` – layout and responsive styling.
+
+## Adding or updating templates
+
+1. Drop the source SVG into `public/templates/` and ensure elements you plan to edit have `data-*` attributes (e.g., `data-foreground`, `data-stroke`).
+2. Add a matching entry to `src/templates/config.ts`, specifying defaults and `fields` for any editable serial, color, or toggle controls.
+3. Restart `npm run dev` if it was already running so Vite picks up the new asset.
+
+Once saved, the template appears in the dropdown and responds to the configured fields.
+
+## License
+
+- Application code is released under the [MIT License](./LICENSE).
+- SVG templates in `public/templates/` and any exported artwork are available under [CC BY 4.0](./LICENSE). Please credit **Charlie SIGMA** and link back to this repo or the live site when you use them.
