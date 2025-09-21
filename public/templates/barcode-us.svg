@@ -20,7 +20,6 @@
           font-size: 5.8px;
           letter-spacing: -0.023em;
           text-transform: uppercase;
-          font-variant-numeric: slashed-zero;
         }
         .barcode {
           font-family: "Libre Barcode 39";

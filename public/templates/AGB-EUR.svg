@@ -14,7 +14,6 @@
           font-size: 10.427px;
           letter-spacing: -0.023em;
           text-transform: uppercase;
-          font-variant-numeric: slashed-zero;
         }
       ]]>
     </style>
