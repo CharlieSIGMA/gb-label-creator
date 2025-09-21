@@ -315,7 +315,32 @@ export const templates: TemplateDefinition[] = [
         target: '[data-background="background"]'
       },
     ]
-  }
+  },
+  {
+    id: 'warning',
+    label: 'Warning',
+    svgPath: 'templates/warning.svg',
+    defaults: {
+      foreground: '#ffffff',
+      background: '#404041',
+    },
+    filename: () => 'c-agb-usa-1-agb-001.svg',
+    fields: [
+      {
+        id: 'foreground',
+        label: 'Foreground colour',
+        type: 'color',
+        target: '[data-foreground="foreground"]'
+      },
+      {
+        id: 'background',
+        label: 'Background colour',
+        type: 'color',
+        target: '[data-background="background"]'
+      },
+    ],
+    //hiddenFieldIds: ['foreground']
+  },
 ];
 
 
