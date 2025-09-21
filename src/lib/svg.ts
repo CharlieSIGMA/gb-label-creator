@@ -58,6 +58,9 @@ export async function downloadOutlinedSvg(svg: SVGSVGElement, template: Template
 
   const exportSvg = clone.cloneNode(true) as SVGSVGElement;
   exportSvg.removeAttribute('style');
+  exportSvg.querySelectorAll('defs').forEach(def => {
+    def.parentNode?.removeChild(def);
+  });
   const serialized = new XMLSerializer().serializeToString(exportSvg);
   svg.parentNode?.removeChild(clone);
 
