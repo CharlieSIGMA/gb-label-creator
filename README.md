@@ -1,4 +1,4 @@
-# GBA Labels
+# GameBoy Label Creator
 
 A small React + Vite app for designing and exporting Game Boy Advance cartridge labels. Pick a template, tweak the serial, colors, and border options, then download a print-ready, correctly sized SVG with all text converted to outlines.
 
