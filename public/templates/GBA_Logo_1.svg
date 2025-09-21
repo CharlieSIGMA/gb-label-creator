@@ -1,43 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="49.576mm" height="14.276mm" version="1.1" viewBox="0 0 140.532 40.469">
-  <defs>
-    <style type="text/css">
-      <![CDATA[
-        @font-face {
-          font-family: "OCR-B";
-          src: url('fonts/OCR-B.otf') format('opentype');
-          font-weight: normal;
-          font-style: normal;
-        }
-        @font-face {
-          font-family: "Libre Barcode 39";
-          src: url('fonts/LibreBarcode39-Regular.ttf') format('TrueType');
-          font-weight: normal;
-          font-style: normal;
-        }
-        .serial {
-          font-family: "OCR-B";
-          font-size: 5.8px;
-          letter-spacing: -0.023em;
-          text-transform: uppercase;
-          font-variant-numeric: slashed-zero;
-        }
-        .barcode {
-          font-family: "Libre Barcode 39";
-          letter-spacing: 0;
-          font-size: 15.05pt;
-          font-weight: 400;
-          font-style: normal;
-          text-transform: uppercase;
-        }
-      ]]>
-    </style>
-  </defs>
   <g>
-    <rect x=".126" y=".126" width="140.28" height="40.217" rx="3.9526pt" fill="#000000" data-background="background"/>
+    <rect x=".126" y=".126" width="140.28" height="40.217" rx="3.9526pt" fill="#fff" data-background="background"/>
     <rect x=".126" y=".126" width="140.28" height="40.217" rx="3.9526pt" fill="none" stroke="#a8a8ab" stroke-width="0.25pt" stroke-dasharray="0.9pt" data-stroke="stroke"/>
   </g>
-  <g fill="#ffffff" data-foreground="foreground">
+  <g fill="#000" data-foreground="foreground">
     <path d="M84.197,22.167h-1.898v-3.857h2.694c1.439,0,2.143.582,2.143,1.837,0,1.531-.765,2.02-2.939,2.02M97.452,16.688h-2.204l-.061.122-2.48,4.561-2.663-4.561-.061-.092h-2.357l.184.306.459.735c-.735-.704-1.837-1.071-3.275-1.071h-4.745v5.939l-3.52-5.816-.061-.092h-1.806l-.061.092-4.01,6.734-.184.306h5.051v-1.592h-2.051l2.051-3.704,2.908,5.173.061.092h5.908c3.092,0,4.684-1.224,4.684-3.612,0-.429-.061-.796-.153-1.133l2.816,4.653.061.092h1.378l.061-.092,3.888-6.734.184-.306"/>
     <polyline points="111.135 16.688 110.921 16.688 110.921 20.943 105.564 16.749 105.502 16.688 104.094 16.688 104.094 22.626 100.574 16.81 100.513 16.688 98.707 16.688 98.646 16.81 94.635 23.514 94.452 23.851 96.595 23.851 96.595 23.851 99.533 23.851 99.533 22.259 97.482 22.259 99.533 18.555 102.441 23.728 102.503 23.851 104.829 23.851 104.829 23.851 105.992 23.851 105.992 19.534 111.349 23.789 111.41 23.851 112.819 23.851 112.819 16.688 111.135 16.688"/>
     <path d="M119.614,16.688h-4.194c-1.469,0-1.959.459-1.959,1.806v3.551c0,1.347.49,1.806,1.959,1.806h4.194c1.469,0,1.959-.459,1.959-1.806v-1.01h-2.082v1.102h-4.01v-3.765h4.01v.98h2.082v-.857c0-1.378-.49-1.806-1.959-1.806"/>

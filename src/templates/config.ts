@@ -20,7 +20,17 @@ export type ColorField = {
   target: string;
 };
 
-export type Field = TextField | ColorField;
+export type ToggleField = {
+  id: string;
+  label: string;
+  type: 'toggle';
+  target: string;
+  attribute: string;
+  onValue: string;
+  offValue: string;
+};
+
+export type Field = TextField | ColorField | ToggleField;
 
 export type TemplateDefinition = {
   id: string;
@@ -41,6 +51,7 @@ export const templates: TemplateDefinition[] = [
       serial: 'AB123456789',
       foreground: '#000000',
       background: '#ffffff',
+      stroke: true,
     },
     filename: values => `agb-cgb-barcode-us-${String(values.serial ?? '').toUpperCase()}.svg`,
     fields: [
@@ -67,6 +78,15 @@ export const templates: TemplateDefinition[] = [
         type: 'color',
         target: '[data-background="background"]'
       },
+      {
+        id: 'stroke',
+        label: 'Enable dashed border',
+        type: 'toggle',
+        target: '[data-stroke="stroke"]',
+        attribute: 'stroke',
+        onValue: '#a8a8ab',
+        offValue: 'none'
+      },
     ]
   },
   {
@@ -77,6 +97,7 @@ export const templates: TemplateDefinition[] = [
       serial: 'AB123456789',
       foreground: '#ffffff',
       background: '#231f20',
+      stroke: false,
     },
     filename: values => `agb-jpn-agb-001-${String(values.serial ?? '').toUpperCase()}.svg`,
     fields: [
@@ -103,6 +124,15 @@ export const templates: TemplateDefinition[] = [
         type: 'color',
         target: '[data-background="background"]'
       },
+      {
+        id: 'stroke',
+        label: 'Enable dashed border',
+        type: 'toggle',
+        target: '[data-stroke="stroke"]',
+        attribute: 'stroke',
+        onValue: '#a8a8ab',
+        offValue: 'none'
+      },
     ]
   },
   {
@@ -113,6 +143,7 @@ export const templates: TemplateDefinition[] = [
       serial: 'AB123456789',
       foreground: '#ffffff',
       background: '#231f20',
+      stroke: false,
     },
     filename: values => `c-agb-jpn-1-agb-001-${String(values.serial ?? '').toUpperCase()}.svg`,
     fields: [
@@ -139,6 +170,15 @@ export const templates: TemplateDefinition[] = [
         type: 'color',
         target: '[data-background="background"]'
       },
+      {
+        id: 'stroke',
+        label: 'Enable dashed border',
+        type: 'toggle',
+        target: '[data-stroke="stroke"]',
+        attribute: 'stroke',
+        onValue: '#a8a8ab',
+        offValue: 'none'
+      },
     ]
   },
   {
@@ -149,6 +189,7 @@ export const templates: TemplateDefinition[] = [
       serial: 'AB123456789',
       foreground: '#ffffff',
       background: '#231f20',
+      stroke: false,
     },
     filename: values => `c-agb-eur-agb-001-${String(values.serial ?? '').toUpperCase()}.svg`,
     fields: [
@@ -175,6 +216,15 @@ export const templates: TemplateDefinition[] = [
         type: 'color',
         target: '[data-background="background"]'
       },
+      {
+        id: 'stroke',
+        label: 'Enable dashed border',
+        type: 'toggle',
+        target: '[data-stroke="stroke"]',
+        attribute: 'stroke',
+        onValue: '#a8a8ab',
+        offValue: 'none'
+      },
     ]
   },
   {
@@ -184,6 +234,7 @@ export const templates: TemplateDefinition[] = [
     defaults: {
       foreground: '#ffffff',
       background: '#231f20',
+      stroke: false,
     },
     filename: () => 'c-agb-usa-1-agb-001.svg',
     fields: [
@@ -199,6 +250,15 @@ export const templates: TemplateDefinition[] = [
         type: 'color',
         target: '[data-background="background"]'
       },
+      {
+        id: 'stroke',
+        label: 'Enable dashed border',
+        type: 'toggle',
+        target: '[data-stroke="stroke"]',
+        attribute: 'stroke',
+        onValue: '#a8a8ab',
+        offValue: 'none'
+      },
     ],
   },
   {
@@ -209,6 +269,7 @@ export const templates: TemplateDefinition[] = [
       serial: 'AB123456789',
       foreground: '#ffffff',
       background: '#231f20',
+      stroke: false,
     },
     filename: values => `c-ags-usa-ags-001-${String(values.serial ?? '').toUpperCase()}.svg`,
     fields: [
@@ -237,6 +298,15 @@ export const templates: TemplateDefinition[] = [
         type: 'color',
         target: '[data-background="background"]'
       },
+      {
+        id: 'stroke',
+        label: 'Enable dashed border',
+        type: 'toggle',
+        target: '[data-stroke="stroke"]',
+        attribute: 'stroke',
+        onValue: '#a8a8ab',
+        offValue: 'none'
+      },
     ]
   },
   {
@@ -247,6 +317,7 @@ export const templates: TemplateDefinition[] = [
       serial: 'AB123456789',
       foreground: '#ffffff',
       background: '#231f20',
+      stroke: false,
     },
     filename: values => `c-agt-usa-ags-101-${String(values.serial ?? '').toUpperCase()}.svg`,
     fields: [
@@ -275,6 +346,15 @@ export const templates: TemplateDefinition[] = [
         type: 'color',
         target: '[data-background="background"]'
       },
+      {
+        id: 'stroke',
+        label: 'Enable dashed border',
+        type: 'toggle',
+        target: '[data-stroke="stroke"]',
+        attribute: 'stroke',
+        onValue: '#a8a8ab',
+        offValue: 'none'
+      },
     ]
   },
   {
@@ -285,6 +365,7 @@ export const templates: TemplateDefinition[] = [
       serial: 'AB123456789',
       foreground: '#ffffff',
       background: '#231f20',
+      stroke: false,
     },
     filename: values => `c-agt-usa-e4-ags-101-${String(values.serial ?? '').toUpperCase()}.svg`,
     fields: [
@@ -313,6 +394,15 @@ export const templates: TemplateDefinition[] = [
         type: 'color',
         target: '[data-background="background"]'
       },
+      {
+        id: 'stroke',
+        label: 'Enable dashed border',
+        type: 'toggle',
+        target: '[data-stroke="stroke"]',
+        attribute: 'stroke',
+        onValue: '#a8a8ab',
+        offValue: 'none'
+      },
     ]
   },
   {
@@ -322,6 +412,7 @@ export const templates: TemplateDefinition[] = [
     defaults: {
       foreground: '#ffffff',
       background: '#404041',
+      stroke: false,
     },
     filename: () => 'warning.svg',
     fields: [
@@ -337,6 +428,15 @@ export const templates: TemplateDefinition[] = [
         type: 'color',
         target: '[data-background="background"]'
       },
+      {
+        id: 'stroke',
+        label: 'Enable dashed border',
+        type: 'toggle',
+        target: '[data-stroke="stroke"]',
+        attribute: 'stroke',
+        onValue: '#a8a8ab',
+        offValue: 'none'
+      },
     ],
     //hiddenFieldIds: ['foreground']
   },
@@ -345,8 +445,9 @@ export const templates: TemplateDefinition[] = [
     label: 'GBA Logo 1',
     svgPath: 'templates/GBA_Logo_1.svg',
     defaults: {
-      foreground: '#ffffff',
-      background: '#000000',
+      foreground: '#000000',
+      background: '#ffffff',
+      stroke: true,
     },
     filename: () => 'gba-logo-1.svg',
     fields: [
@@ -362,6 +463,15 @@ export const templates: TemplateDefinition[] = [
         type: 'color',
         target: '[data-background="background"]'
       },
+      {
+        id: 'stroke',
+        label: 'Enable dashed border',
+        type: 'toggle',
+        target: '[data-stroke="stroke"]',
+        attribute: 'stroke',
+        onValue: '#a8a8ab',
+        offValue: 'none'
+      },
     ],
     //hiddenFieldIds: ['foreground']
   },
@@ -370,8 +480,9 @@ export const templates: TemplateDefinition[] = [
     label: 'GBA Logo 2',
     svgPath: 'templates/GBA_Logo_2.svg',
     defaults: {
-      foreground: '#ffffff',
-      background: '#000000',
+      foreground: '#000000',
+      background: '#ffffff',
+      stroke: true,
     },
     filename: () => 'gba-logo-2.svg',
     fields: [
@@ -387,6 +498,15 @@ export const templates: TemplateDefinition[] = [
         type: 'color',
         target: '[data-background="background"]'
       },
+      {
+        id: 'stroke',
+        label: 'Enable dashed border',
+        type: 'toggle',
+        target: '[data-stroke="stroke"]',
+        attribute: 'stroke',
+        onValue: '#a8a8ab',
+        offValue: 'none'
+      },
     ],
     //hiddenFieldIds: ['foreground']
   },
@@ -395,8 +515,9 @@ export const templates: TemplateDefinition[] = [
     label: 'GBA Logo 3',
     svgPath: 'templates/GBA_Logo_3.svg',
     defaults: {
-      foreground: '#ffffff',
-      background: '#000000',
+      foreground: '#000000',
+      background: '#ffffff',
+      stroke: true,
     },
     filename: () => 'gba-logo-3.svg',
     fields: [
@@ -411,6 +532,15 @@ export const templates: TemplateDefinition[] = [
         label: 'Background colour',
         type: 'color',
         target: '[data-background="background"]'
+      },
+      {
+        id: 'stroke',
+        label: 'Enable dashed border',
+        type: 'toggle',
+        target: '[data-stroke="stroke"]',
+        attribute: 'stroke',
+        onValue: '#a8a8ab',
+        offValue: 'none'
       },
     ],
     //hiddenFieldIds: ['foreground']

@@ -53,5 +53,21 @@ export function FieldInput({ field, value, defaultValue, onChange }: Props) {
     );
   }
 
+  if (field.type === 'toggle') {
+    const defaultChecked = typeof defaultValue === 'boolean' ? defaultValue : Boolean(defaultValue);
+    const checked = typeof value === 'boolean' ? value : defaultChecked;
+
+    return (
+      <label className="field field--toggle">
+        <input
+          type="checkbox"
+          checked={checked}
+          onChange={event => onChange(event.target.checked)}
+        />
+        <span>{field.label}</span>
+      </label>
+    );
+  }
+
   return null;
 }

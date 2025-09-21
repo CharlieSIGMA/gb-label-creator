@@ -36,6 +36,18 @@ body, #root {
   font-weight: 600;
 }
 
+.panel .field--toggle {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.panel .field--toggle input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: #2563eb;
+}
+
 .panel .field-color-controls {
   display: flex;
   align-items: center;

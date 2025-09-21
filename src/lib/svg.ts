@@ -32,6 +32,15 @@ export function applyFieldValue(svgRoot: SVGElement, field: Field, value: unknow
     nodes.forEach(node => {
       node.setAttribute('fill', fillValue);
     });
+    return;
+  }
+
+  if (field.type === 'toggle') {
+    const enabled = Boolean(value);
+    const nodes = svgRoot.querySelectorAll<SVGElement>(field.target);
+    nodes.forEach(node => {
+      node.setAttribute(field.attribute, enabled ? field.onValue : field.offValue);
+    });
   }
 }
 
