@@ -134,6 +134,7 @@ body, #root {
 }
 
 .panel .field-color-popover .react-colorful {
+  gap: .75rem;
   width: 100%;
 }
 
