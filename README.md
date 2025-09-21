@@ -4,7 +4,7 @@ A small React + Vite app for designing and exporting Game Boy Advance cartridge 
 
 ## Live site
 
-- https://charliesigma.github.io/gba-labels/
+- https://charliesigma.github.io/gb-label-creator/
 
 ## Highlights
 
