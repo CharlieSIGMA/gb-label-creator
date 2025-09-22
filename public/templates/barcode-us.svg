@@ -16,7 +16,7 @@
           font-style: normal;
         }
         .serial {
-          font-family: "OCR-B";
+          font-family: "OCR-B", "OCR B Std";
           font-size: 5.8px;
           letter-spacing: -0.023em;
           text-transform: uppercase;
