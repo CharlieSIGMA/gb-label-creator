@@ -96,7 +96,7 @@ export const templates: TemplateDefinition[] = [
     defaults: {
       serial: 'AB123456789',
       foreground: '#ffffff',
-      background: '#231f20',
+      background: '#595a5c',
       stroke: false,
     },
     filename: values => `agb-jpn-agb-001-${String(values.serial ?? '').toUpperCase()}.svg`,
@@ -142,7 +142,7 @@ export const templates: TemplateDefinition[] = [
     defaults: {
       serial: 'AB123456789',
       foreground: '#ffffff',
-      background: '#231f20',
+      background: '#595a5c',
       stroke: false,
     },
     filename: values => `c-agb-jpn-1-agb-001-${String(values.serial ?? '').toUpperCase()}.svg`,
@@ -188,7 +188,7 @@ export const templates: TemplateDefinition[] = [
     defaults: {
       serial: 'AB123456789',
       foreground: '#ffffff',
-      background: '#231f20',
+      background: '#595a5c',
       stroke: false,
     },
     filename: values => `c-agb-eur-agb-001-${String(values.serial ?? '').toUpperCase()}.svg`,
@@ -233,7 +233,7 @@ export const templates: TemplateDefinition[] = [
     svgPath: 'templates/AGB-USA-1.svg',
     defaults: {
       foreground: '#ffffff',
-      background: '#231f20',
+      background: '#595a5c',
       stroke: false,
     },
     filename: () => 'c-agb-usa-1-agb-001.svg',
