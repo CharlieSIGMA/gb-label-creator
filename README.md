@@ -84,7 +84,8 @@ Once saved, the template appears in the dropdown and responds to the configured 
 ## Thank you
 
 - [https://gbasp.ru/fakestickers-en.html](https://gbasp.ru/fakestickers-en.html) for being a great resource on AGS stickers.
-- `Janni9009` for perfect, high-quality screnshots of AGB-EUR model.
+- `Janni9009` for high-quality scans of AGB-EUR model.
+- `amelia` for high-quality scans of AGB and AGS iQUE models.
 
 ## License
 
