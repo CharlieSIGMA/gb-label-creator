@@ -522,9 +522,7 @@
     <rect x="62.133" y="3.81" width="140.315" height="35.433" rx="2.66" ry="2.66"/>
   </g>
   <g fill="#231f20" data-background="background">
-    <text class="barcode" transform="translate(71.771 24.503) scale(.605 1)">
-      <tspan x="0" y="0">*AB123456789*</tspan>
-    </text>
+    <text class="barcode" transform="translate(71.771 24.503) scale(.605 1)">*AB123456789*</text>
     <g transform="translate(95.723 35.284)" xml:space="preserve">
       <text data-serial-part="prefix" class="serial" style="letter-spacing: -0.75pt;">AB</text>
       <text data-serial-part="middle" class="serial" x="12.6" textLength="49px" lengthAdjust="spacingAndGlyphs">12345678</text>

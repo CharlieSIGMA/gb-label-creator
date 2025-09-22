@@ -7,6 +7,37 @@ const fontsPromise = Promise.all([
   opentype.load('fonts/LibreBarcode39-Regular.ttf')
 ]).then(([ocr, barcode]) => ({ ocr, barcode }));
 
+const slashedZeroGlyphCache = new WeakMap<opentype.Font, opentype.Glyph | null>();
+
+type FontInternals = {
+  substitution?: {
+    getSingle?: (feature: string, script?: string, language?: string) => Array<{ sub: number; by: number }> | undefined;
+  };
+  glyphs?: {
+    get: (index: number) => opentype.Glyph | undefined;
+  };
+};
+
+type ZeroSubstitution = { sub: number; by: number };
+
+function resolveSlashedZeroGlyph(font: opentype.Font) {
+  if (!slashedZeroGlyphCache.has(font)) {
+    const zeroGlyph = font.charToGlyph('0');
+    const zeroGlyphIndex = (zeroGlyph as unknown as { index?: number }).index;
+    const internals = font as unknown as FontInternals;
+    const substitutions = internals.substitution?.getSingle?.('zero', 'latn', 'dflt') ?? [];
+    let glyph: opentype.Glyph | null = null;
+    if (typeof zeroGlyphIndex === "number") {
+      const match = substitutions.find((entry): entry is ZeroSubstitution => {
+        return !!entry && typeof entry.sub === "number" && typeof entry.by === "number" && entry.sub === zeroGlyphIndex;
+      });
+      glyph = match ? internals.glyphs?.get(match.by) ?? null : null;
+    }
+    slashedZeroGlyphCache.set(font, glyph);
+  }
+  return slashedZeroGlyphCache.get(font) ?? null;
+}
+
 function applyTextField(svgRoot: SVGElement, field: TextField, value: unknown) {
   const raw = String(value ?? '');
   const base = field.uppercase ? raw.toUpperCase() : raw;
@@ -86,12 +117,6 @@ export async function downloadOutlinedSvg(svg: SVGSVGElement, template: Template
 type OutlineFonts = { serialFont: opentype.Font; barcodeFont: opentype.Font };
 
 function outlineText(svg: SVGSVGElement, fonts: OutlineFonts) {
-  const toPx = (el: Element) => parseFloat(getComputedStyle(el as Element).fontSize);
-  const getLetterSpacing = (el: Element) => {
-    const rawSpacing = getComputedStyle(el as Element).letterSpacing;
-    const parsed = parseFloat(rawSpacing);
-    return Number.isFinite(parsed) ? parsed : 0;
-  };
   const resolveTextLength = (value: string, naturalWidth: number) => {
     const trimmed = value.trim();
     if (!trimmed) return null;
@@ -109,24 +134,38 @@ function outlineText(svg: SVGSVGElement, fonts: OutlineFonts) {
     if (!font) return;
 
     const raw = textEl.textContent ?? '';
-    if (!raw) {
+    const sanitized = raw.replace(/[\r\n\t]/g, '');
+    if (!sanitized) {
       textEl.remove();
       return;
     }
 
+    const style = getComputedStyle(textEl as Element);
+    const size = parseFloat(style.fontSize);
+    const letterSpacingValue = parseFloat(style.letterSpacing);
+    const tracking = Number.isFinite(letterSpacingValue) ? letterSpacingValue : 0;
+    const variantNumeric = style.fontVariantNumeric || '';
+    const applySlashedZero = variantNumeric.split(/\s+/).includes('slashed-zero');
+
     const x0 = parseFloat(textEl.getAttribute('x') ?? '0');
     const y = parseFloat(textEl.getAttribute('y') ?? '0');
-    const size = toPx(textEl);
-    const tracking = textEl.classList.contains('serial') ? getLetterSpacing(textEl) : 0;
 
     let cursor = x0;
     let pathData = '';
-    for (const ch of raw) {
-      const glyph = font.charToGlyph(ch);
+    const characters = Array.from(sanitized);
+    const lastIndex = characters.length - 1;
+    characters.forEach((ch, index) => {
+      let glyph = font.charToGlyph(ch);
+      if (applySlashedZero && ch === '0') {
+        glyph = resolveSlashedZeroGlyph(font) ?? glyph;
+      }
       const glyphPath = glyph.getPath(cursor, y, size);
       pathData += glyphPath.toPathData(2);
-      cursor += (glyph.advanceWidth / font.unitsPerEm) * size + tracking;
-    }
+      cursor += (glyph.advanceWidth / font.unitsPerEm) * size;
+      if (index < lastIndex) {
+        cursor += tracking;
+      }
+    });
 
     const naturalWidth = cursor - x0;
 
