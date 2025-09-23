@@ -1,6 +1,6 @@
 // src/lib/svg.ts
 import opentype from 'opentype.js';
-import type { TemplateDefinition, Field, TextField } from '../templates/config';
+import type { TemplateDefinition, Field, TextField } from '../config/types';
 
 const fontsPromise = Promise.all([
   opentype.load('fonts/OCR-B.otf'),

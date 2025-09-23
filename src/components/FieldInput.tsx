@@ -1,7 +1,7 @@
 // src/components/FieldInput.tsx
 import { useRef, useState } from 'react';
 import { HexColorInput, HexColorPicker } from 'react-colorful';
-import type { Field } from '../templates/config';
+import type { Field } from '../config/types';
 
 type Props = {
   field: Field;

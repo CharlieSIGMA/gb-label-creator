@@ -1,6 +1,6 @@
 // src/App.tsx
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { templates } from './templates/config';
+import { templates } from './config/config';
 import { FieldInput } from './components/FieldInput';
 import { applyTemplateValues, downloadOutlinedSvg } from './lib/svg';
 
