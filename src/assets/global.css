@@ -30,10 +30,15 @@ body, #root {
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
 }
 
-.panel label {
+.panel label,
+.panel .field {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
+}
+
+.panel label,
+.panel .field-label {
   font-weight: 600;
 }
 

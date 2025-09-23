@@ -40,7 +40,7 @@ export function App() {
       <aside className="panel">
         <label>
           Template
-          <select value={activeId} onChange={event => setActiveId(event.target.value)}>
+          <select name="template-selector" value={activeId} onChange={event => setActiveId(event.target.value)}>
             {templates.map(t => (
               <option key={t.id} value={t.id}>
                 {t.label}

@@ -25,11 +25,15 @@ function sanitizeHexColor(input: unknown): string | null {
 
 export function FieldInput({ field, value, defaultValue, onChange }: Props) {
   if (field.type === 'text') {
+    const inputId = `${field.id}-input`;
+
     return (
-      <label>
+      <label htmlFor={inputId}>
         {field.label}
         <input
+          id={inputId}
           type="text"
+          name={field.id}
           maxLength={field.maxLength}
           value={String(value ?? '')}
           onChange={event => onChange(event.target.value)}
@@ -42,10 +46,13 @@ export function FieldInput({ field, value, defaultValue, onChange }: Props) {
   if (field.type === 'toggle') {
     const defaultChecked = typeof defaultValue === 'boolean' ? defaultValue : Boolean(defaultValue);
     const checked = typeof value === 'boolean' ? value : defaultChecked;
+    const inputId = `${field.id}-toggle`;
 
     return (
-      <label className="field field--toggle">
+      <label className="field field--toggle" htmlFor={inputId}>
         <input
+          id={inputId}
+          name={field.id}
           type="checkbox"
           checked={checked}
           onChange={event => onChange(event.target.checked)}
@@ -81,8 +88,9 @@ export function FieldInput({ field, value, defaultValue, onChange }: Props) {
   };
 
   return (
-    <label className="field field--color">
-      {field.label}
+    <div className="field field--color" role="group" aria-label={field.label}>
+      <input type="hidden" name={field.id} value={color} />
+      <span className="field-label">{field.label}</span>
       <div className="field-color-controls">
         <button
           type="button"
@@ -109,7 +117,10 @@ export function FieldInput({ field, value, defaultValue, onChange }: Props) {
             <button
               type="button"
               className="field-color-close"
-              onClick={() => setIsPickerOpen(false)}
+              onClick={() => {
+                setIsPickerOpen(false);
+                triggerRef.current?.focus();
+              }}
               aria-label="Close color picker"
             >
               <svg viewBox="0 0 16 16" aria-hidden="true">
@@ -119,6 +130,7 @@ export function FieldInput({ field, value, defaultValue, onChange }: Props) {
             <HexColorPicker color={color} onChange={handleColorChange} />
             <HexColorInput
               aria-label="Hex color value"
+              name="hex-color-value"
               color={color}
               prefixed
               onChange={handleColorChange}
@@ -127,6 +139,6 @@ export function FieldInput({ field, value, defaultValue, onChange }: Props) {
           </div>
         )}
       </div>
-    </label>
+    </div>
   );
 }
