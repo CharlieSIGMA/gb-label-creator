@@ -276,11 +276,11 @@
     </g>
     <rect x="62.133" y="3.81" width="140.315" height="35.433" rx="2.66" ry="2.66"/>
   </g>
-  <g fill="#231f20" data-background="background">
+  <g fill="#231f20" data-background="background" xml:space="preserve">
     <text class="barcode" transform="translate(74.439 25.02) scale(1 1.74)">*AB123456789*</text>
     <g transform="translate(95.876 35.284)">
       <text data-serial-part="prefix" class="serial" style="letter-spacing: -0.90pt;">AB</text>
-      <text transform="scale(.87 1)" data-serial-part="middle" class="serial" x="13.81" textLength="57.85" lengthAdjust="spacingAndGlyphs">12345678</text>
+      <text data-serial-part="middle" class="serial" x="13.81" textLength="57.85" lengthAdjust="spacingAndGlyphs" transform="scale(.87 1)">12345678</text>
       <text data-serial-part="suffix" class="serial" x="65.4" y="-0.16" textLength="7" lengthAdjust="spacingAndGlyphs">9</text>
     </g>
     <path d="M168.204,27.028v9.248h-6.654v-9.248h6.654M168.704,26.528h-7.654v10.248h7.654v-10.248h0Z"/>

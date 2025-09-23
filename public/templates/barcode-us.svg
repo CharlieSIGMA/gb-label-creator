@@ -87,7 +87,7 @@
       <circle cx="91.969" cy="37.295" r=".214"/>
       <circle cx="92.571" cy="36.722" r=".204"/>
     </g>
-    <g>
+    <g xml:space="preserve">
       <text class="serial" transform="translate(47.8 36.2)">AB123456789</text>
       <g width="4.4cm" height="0.85cm" transform="translate(7.937 28.7175)">
         <text class="barcode" transform="scale(1,2)">*AB123456789*</text>

@@ -346,7 +346,7 @@
     </g>
   </g>
   <g>
-    <g fill="#595a5c" data-background="background">
+    <g fill="#595a5c" data-background="background" xml:space="preserve">
       <text transform="translate(119.223 12.296) scale(.81 1)" class="serial" style="letter-spacing: -1.2pt;" data-serial-part="prefix">AB</text>
       <text transform="translate(128.683 12.297)" class="serial" style="letter-spacing: -0.87pt;" data-serial-part="numbers">123456789</text>
     </g>
