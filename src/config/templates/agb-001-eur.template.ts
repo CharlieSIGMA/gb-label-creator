@@ -1,7 +1,7 @@
 import type { TemplateDefinition } from '../types';
 
 const agb001Eur: TemplateDefinition = {
-    id: 'agb-001-eur',
+    id: 'c-agb-001-eur',
     label: 'C/AGB-EUR (AGB-001)',
     svgPath: 'templates/AGB-EUR.svg',
     defaults: {

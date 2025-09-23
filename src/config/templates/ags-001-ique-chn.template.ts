@@ -1,7 +1,7 @@
 import type { TemplateDefinition } from '../types';
 
 const ags001Chn: TemplateDefinition = {
-    id: 'ags-001-ique-chn',
+    id: 'ags-001-chn-ique',
     label: 'AGS-iQue (AGS-001)',
     svgPath: 'templates/iQue-AGS-001.svg',
     defaults: {
@@ -10,7 +10,7 @@ const ags001Chn: TemplateDefinition = {
       background: '#231f20',
       stroke: false,
     },
-    filename: values => `ags-001-ique-chn-${String(values.serial ?? '').toUpperCase()}.svg`,
+    filename: values => `ags-001-chn-ique-${String(values.serial ?? '').toUpperCase()}.svg`,
     fields: [
       {
         id: 'serial',

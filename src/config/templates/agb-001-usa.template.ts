@@ -1,7 +1,7 @@
 import type { TemplateDefinition } from '../types';
 
 const agb001Usa: TemplateDefinition = {
-    id: 'agb-001-usa',
+    id: 'c-agb-001-usa',
     label: 'C/AGB-USA-1 (AGB-001)',
     svgPath: 'templates/AGB-USA-1.svg',
     defaults: {

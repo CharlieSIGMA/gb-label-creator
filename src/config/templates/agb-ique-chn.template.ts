@@ -1,7 +1,7 @@
 import type { TemplateDefinition } from '../types';
 
 const agb001Chn: TemplateDefinition = {
-  id: 'agb-ique-chn',
+  id: 'gba-001-chn-ique',
   label: 'AGB-iQUE (GBA-001)',
   svgPath: 'templates/AGB-iQUE.svg',
   defaults: {
@@ -9,7 +9,7 @@ const agb001Chn: TemplateDefinition = {
     background: '#595a5c',
     stroke: false,
   },
-  filename: () => 'agb-ique-gba-001.svg',
+  filename: () => 'gba-001-chn-ique.svg',
   fields: [
     {
       id: 'foreground',

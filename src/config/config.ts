@@ -1,44 +1,28 @@
 // src/config/config.ts
 import type { TemplateDefinition } from './types';
 
-import barcodeUs from './templates/barcode-us.template';
-
-// AGB-001
-import agb001Jpn from './templates/agb-001-jpn.template';
-import agb001Jpn1 from './templates/agb-001-jpn-1.template';
-import agb001Eur from './templates/agb-001-eur.template';
-import agb001Usa from './templates/agb-001-usa.template';
-import agb001Chn from './templates/agb-ique-chn.template';
-
-// AGS-001
-import ags001Usa from './templates/ags-usa-ags-001.template';
-import ags001Chn from './templates/ags-001-ique-chn.template';
-
-// AGS-101
-import ags101Usa from './templates/c-agt-usa-ags-101.template';
-import ags101E4Usa from './templates/c-agt-usa-e4-ags-101.template';
-import ags101Chn from './templates/ags-101-ique-chn.template';
-
-// Misc
-import warning from './templates/warning.template';
-import gbaLogo1 from './templates/gba-logo-1.template';
-import gbaLogo2 from './templates/gba-logo-2.template';
-import gbaLogo3 from './templates/gba-logo-3.template';
-
-export const templates: TemplateDefinition[] = [
-  barcodeUs,
-  agb001Jpn,
-  agb001Jpn1,
-  agb001Eur,
-  agb001Usa,
-  agb001Chn,
-  ags001Usa,
-  ags101Usa,
-  ags101E4Usa,
-  ags001Chn,
-  ags101Chn,
-  warning,
-  gbaLogo1,
-  gbaLogo2,
-  gbaLogo3,
+const desiredOrder = [
+  'barcode-us',
+  'agb-001-jpn',
+  'c-agb-001-jpn-1',
+  'c-agb-001-eur',
+  'c-agb-001-usa',
+  'gba-001-chn-ique',
+  'c-ags-usa-ags-001',
+  'c-agt-usa-ags-101',
+  'c-agt-usa-e4-ags-101',
+  'ags-001-chn-ique',
+  'ags-101-chn-ique',
+  'warning',
+  'gba-logo-1',
+  'gba-logo-2',
+  'gba-logo-3',
 ];
+
+const modules = import.meta.glob<{ default: TemplateDefinition }>('./templates/*.template.ts', {
+  eager: true,
+});
+
+export const templates = Object.values(modules)
+  .map(module => module.default)
+  .sort((a, b) => desiredOrder.indexOf(a.id) - desiredOrder.indexOf(b.id));
