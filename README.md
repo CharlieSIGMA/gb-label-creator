@@ -86,7 +86,7 @@ Once saved, the template appears in the dropdown and responds to the configured 
 - [https://gbasp.ru/fakestickers-en.html](https://gbasp.ru/fakestickers-en.html) for being a great resource on AGS stickers.
 - `Janni9009` for high-quality scans of AGB-EUR model.
 - `amelia` for high-quality scans of AGB and AGS iQUE models.
-- [/u/AchillesPDX](https://www.reddit.com/user/AchillesPDX/) for great-quality scan of the MGB barcode/serial.
+- [/u/AchillesPDX](https://www.reddit.com/user/AchillesPDX/) for great-quality scan of the MGB barcode/serial as well as EUR GBC stickers.
 
 ## License
 
