@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="164.738" height="51.635" version="1.1" viewBox="0 0 164.738 51.635">
+  <defs>
+    <style type="text/css">
+      <![CDATA[
+        @font-face {
+          font-family: "OCR-B";
+          src: url('fonts/OCR-B.otf') format('opentype');
+          font-weight: normal;
+          font-style: normal;
+        }
+        @font-face {
+          font-family: "Libre Barcode 39";
+          src: url('fonts/LibreBarcode39-Regular.ttf') format('TrueType');
+          font-weight: normal;
+          font-style: normal;
+        }
+        .serial {
+          font-family: "OCR-B", "OCR B Std";
+          font-size: 11.498px;
+          letter-spacing: -0.023em;
+          text-transform: uppercase;
+        }
+        .barcode {
+          font-family: "Libre Barcode 39";
+          letter-spacing: 0;
+          font-size: 20.925px;
+          font-weight: 400;
+          font-style: normal;
+          text-transform: uppercase;
+        }
+      ]]>
+    </style>
+  </defs>
+  <!-- Generator: Adobe Illustrator 30.1.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 136)  -->
+  <g>
+    <rect x=".306" y=".306" width="164.126" height="51.024" rx="4.082" ry="4.082" fill="#fff" data-background="background"/>
+    <rect x=".306" y=".306" width="164.126" height="51.024" rx="4.082" ry="4.082" fill="none" stroke="#a8a8ab" stroke-width="0.25pt" stroke-dasharray="0.9pt" data-stroke="stroke"/>
+  </g>
+  <g fill="#000" data-foreground="foreground">
+    <g>
+      <circle cx="113.796" cy="45.965" r=".24"/>
+      <circle cx="115.038" cy="45.965" r=".24"/>
+      <circle cx="116.279" cy="45.965" r=".24"/>
+      <circle cx="117.521" cy="45.965" r=".24"/>
+      <circle cx="118.762" cy="45.965" r=".24"/>
+      <circle cx="114.417" cy="45.344" r=".232"/>
+      <circle cx="115.658" cy="45.344" r=".232"/>
+      <circle cx="116.9" cy="45.344" r=".232"/>
+      <circle cx="118.141" cy="45.344" r=".232"/>
+      <circle cx="113.796" cy="44.724" r=".225"/>
+      <circle cx="115.038" cy="44.724" r=".225"/>
+      <circle cx="116.279" cy="44.724" r=".225"/>
+      <circle cx="117.521" cy="44.724" r=".225"/>
+      <circle cx="118.762" cy="44.724" r=".225"/>
+      <circle cx="114.417" cy="44.103" r=".218"/>
+      <circle cx="115.658" cy="44.103" r=".218"/>
+      <circle cx="116.9" cy="44.103" r=".218"/>
+      <circle cx="118.141" cy="44.103" r=".218"/>
+      <circle cx="113.796" cy="43.482" r=".211"/>
+      <circle cx="115.038" cy="43.482" r=".211"/>
+      <circle cx="116.279" cy="43.482" r=".211"/>
+      <circle cx="117.521" cy="43.482" r=".211"/>
+      <circle cx="118.762" cy="43.482" r=".211"/>
+      <circle cx="114.417" cy="42.861" r=".204"/>
+      <circle cx="115.658" cy="42.861" r=".204"/>
+      <circle cx="116.9" cy="42.861" r=".204"/>
+      <circle cx="118.141" cy="42.861" r=".204"/>
+      <circle cx="113.796" cy="42.24" r=".196"/>
+      <circle cx="115.038" cy="42.24" r=".196"/>
+      <circle cx="116.279" cy="42.24" r=".196"/>
+      <circle cx="117.521" cy="42.24" r=".196"/>
+      <circle cx="118.762" cy="42.24" r=".196"/>
+      <circle cx="114.417" cy="41.62" r=".189"/>
+      <circle cx="115.658" cy="41.62" r=".189"/>
+      <circle cx="116.9" cy="41.62" r=".189"/>
+      <circle cx="118.141" cy="41.62" r=".189"/>
+      <circle cx="113.796" cy="40.999" r=".182"/>
+      <circle cx="115.038" cy="40.999" r=".182"/>
+      <circle cx="116.279" cy="40.999" r=".182"/>
+      <circle cx="117.521" cy="40.999" r=".182"/>
+      <circle cx="118.762" cy="40.999" r=".182"/>
+      <circle cx="114.417" cy="40.378" r=".175"/>
+      <circle cx="115.658" cy="40.378" r=".175"/>
+      <circle cx="116.9" cy="40.378" r=".175"/>
+      <circle cx="118.141" cy="40.378" r=".175"/>
+      <circle cx="113.796" cy="39.757" r=".168"/>
+      <circle cx="115.038" cy="39.757" r=".168"/>
+      <circle cx="116.279" cy="39.757" r=".168"/>
+      <circle cx="117.521" cy="39.757" r=".168"/>
+      <circle cx="118.762" cy="39.757" r=".168"/>
+      <circle cx="114.417" cy="39.137" r=".16"/>
+      <circle cx="115.658" cy="39.137" r=".16"/>
+      <circle cx="116.9" cy="39.137" r=".16"/>
+      <circle cx="118.141" cy="39.137" r=".16"/>
+      <circle cx="113.796" cy="38.516" r=".153"/>
+      <circle cx="115.038" cy="38.516" r=".153"/>
+      <circle cx="116.279" cy="38.516" r=".153"/>
+      <circle cx="117.521" cy="38.516" r=".153"/>
+      <circle cx="118.762" cy="38.516" r=".153"/>
+      <circle cx="114.417" cy="37.895" r=".146"/>
+      <circle cx="115.658" cy="37.895" r=".146"/>
+      <circle cx="116.9" cy="37.895" r=".146"/>
+      <circle cx="118.141" cy="37.895" r=".146"/>
+      <circle cx="113.796" cy="37.274" r=".139"/>
+      <circle cx="115.038" cy="37.274" r=".139"/>
+      <circle cx="116.279" cy="37.274" r=".139"/>
+      <circle cx="117.521" cy="37.274" r=".139"/>
+      <circle cx="118.762" cy="37.274" r=".139"/>
+      <circle cx="114.417" cy="36.653" r=".132"/>
+      <circle cx="115.658" cy="36.653" r=".132"/>
+      <circle cx="116.9" cy="36.653" r=".132"/>
+      <circle cx="118.141" cy="36.653" r=".132"/>
+      <circle cx="113.796" cy="36.033" r=".125"/>
+      <circle cx="115.038" cy="36.033" r=".125"/>
+      <circle cx="116.279" cy="36.033" r=".125"/>
+      <circle cx="117.521" cy="36.033" r=".125"/>
+      <circle cx="118.762" cy="36.033" r=".125"/>
+      <circle cx="114.417" cy="35.412" r=".117"/>
+      <circle cx="115.658" cy="35.412" r=".117"/>
+      <circle cx="116.9" cy="35.412" r=".117"/>
+      <circle cx="118.141" cy="35.412" r=".117"/>
+      <circle cx="113.796" cy="34.791" r=".11"/>
+      <circle cx="115.038" cy="34.791" r=".11"/>
+      <circle cx="116.279" cy="34.791" r=".11"/>
+      <circle cx="117.521" cy="34.791" r=".11"/>
+      <circle cx="118.762" cy="34.791" r=".11"/>
+      <circle cx="120.004" cy="45.965" r=".24"/>
+      <circle cx="121.245" cy="45.965" r=".24"/>
+      <circle cx="122.487" cy="45.965" r=".24"/>
+      <circle cx="123.729" cy="45.965" r=".24"/>
+      <circle cx="119.383" cy="45.344" r=".232"/>
+      <circle cx="120.625" cy="45.344" r=".232"/>
+      <circle cx="121.866" cy="45.344" r=".232"/>
+      <circle cx="123.108" cy="45.344" r=".232"/>
+      <circle cx="120.004" cy="44.724" r=".225"/>
+      <circle cx="121.245" cy="44.724" r=".225"/>
+      <circle cx="122.487" cy="44.724" r=".225"/>
+      <circle cx="123.729" cy="44.724" r=".225"/>
+      <circle cx="119.383" cy="44.103" r=".218"/>
+      <circle cx="120.625" cy="44.103" r=".218"/>
+      <circle cx="121.866" cy="44.103" r=".218"/>
+      <circle cx="123.108" cy="44.103" r=".218"/>
+      <circle cx="120.004" cy="43.482" r=".211"/>
+      <circle cx="121.245" cy="43.482" r=".211"/>
+      <circle cx="122.487" cy="43.482" r=".211"/>
+      <circle cx="123.729" cy="43.482" r=".211"/>
+      <circle cx="119.383" cy="42.861" r=".204"/>
+      <circle cx="120.625" cy="42.861" r=".204"/>
+      <circle cx="121.866" cy="42.861" r=".204"/>
+      <circle cx="123.108" cy="42.861" r=".204"/>
+      <circle cx="120.004" cy="42.24" r=".196"/>
+      <circle cx="121.245" cy="42.24" r=".196"/>
+      <circle cx="122.487" cy="42.24" r=".196"/>
+      <circle cx="123.729" cy="42.24" r=".196"/>
+      <circle cx="119.383" cy="41.62" r=".189"/>
+      <circle cx="120.625" cy="41.62" r=".189"/>
+      <circle cx="121.866" cy="41.62" r=".189"/>
+      <circle cx="123.108" cy="41.62" r=".189"/>
+      <circle cx="120.004" cy="40.999" r=".182"/>
+      <circle cx="121.245" cy="40.999" r=".182"/>
+      <circle cx="122.487" cy="40.999" r=".182"/>
+      <circle cx="123.729" cy="40.999" r=".182"/>
+      <circle cx="119.383" cy="40.378" r=".175"/>
+      <circle cx="120.625" cy="40.378" r=".175"/>
+      <circle cx="121.866" cy="40.378" r=".175"/>
+      <circle cx="123.108" cy="40.378" r=".175"/>
+      <circle cx="120.004" cy="39.757" r=".168"/>
+      <circle cx="121.245" cy="39.757" r=".168"/>
+      <circle cx="122.487" cy="39.757" r=".168"/>
+      <circle cx="123.729" cy="39.757" r=".168"/>
+      <circle cx="119.383" cy="39.137" r=".16"/>
+      <circle cx="120.625" cy="39.137" r=".16"/>
+      <circle cx="121.866" cy="39.137" r=".16"/>
+      <circle cx="123.108" cy="39.137" r=".16"/>
+      <circle cx="120.004" cy="38.516" r=".153"/>
+      <circle cx="121.245" cy="38.516" r=".153"/>
+      <circle cx="122.487" cy="38.516" r=".153"/>
+      <circle cx="123.729" cy="38.516" r=".153"/>
+      <circle cx="119.383" cy="37.895" r=".146"/>
+      <circle cx="120.625" cy="37.895" r=".146"/>
+      <circle cx="121.866" cy="37.895" r=".146"/>
+      <circle cx="123.108" cy="37.895" r=".146"/>
+      <circle cx="120.004" cy="37.274" r=".139"/>
+      <circle cx="121.245" cy="37.274" r=".139"/>
+      <circle cx="122.487" cy="37.274" r=".139"/>
+      <circle cx="123.729" cy="37.274" r=".139"/>
+      <circle cx="119.383" cy="36.653" r=".132"/>
+      <circle cx="120.625" cy="36.653" r=".132"/>
+      <circle cx="121.866" cy="36.653" r=".132"/>
+      <circle cx="123.108" cy="36.653" r=".132"/>
+      <circle cx="120.004" cy="36.033" r=".125"/>
+      <circle cx="121.245" cy="36.033" r=".125"/>
+      <circle cx="122.487" cy="36.033" r=".125"/>
+      <circle cx="123.729" cy="36.033" r=".125"/>
+      <circle cx="119.383" cy="35.412" r=".117"/>
+      <circle cx="120.625" cy="35.412" r=".117"/>
+      <circle cx="121.866" cy="35.412" r=".117"/>
+      <circle cx="123.108" cy="35.412" r=".117"/>
+      <circle cx="120.004" cy="34.791" r=".11"/>
+      <circle cx="121.245" cy="34.791" r=".11"/>
+      <circle cx="122.487" cy="34.791" r=".11"/>
+      <circle cx="123.729" cy="34.791" r=".11"/>
+      <circle cx="124.349" cy="45.344" r=".232"/>
+      <circle cx="124.349" cy="44.103" r=".218"/>
+      <circle cx="124.349" cy="42.861" r=".204"/>
+      <circle cx="124.349" cy="41.62" r=".189"/>
+      <circle cx="124.349" cy="40.378" r=".175"/>
+      <circle cx="124.349" cy="39.137" r=".16"/>
+      <circle cx="124.349" cy="37.895" r=".146"/>
+      <circle cx="124.349" cy="36.653" r=".132"/>
+      <circle cx="124.349" cy="35.412" r=".117"/>
+    </g>
+    <g xml:space="preserve">
+      <text transform="translate(41.859 44.504)" class="serial" data-serial-part="numbers">G746865550</text>
+      <g transform="translate(22.11 33.449) scale(1 2.043)">
+        <text class="barcode">*G746865550*</text>
+      </g>
+    </g>
+  </g>
+</svg>

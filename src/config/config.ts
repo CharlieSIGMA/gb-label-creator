@@ -2,9 +2,12 @@
 import type { TemplateDefinition } from './types';
 
 const desiredOrder = [
-  'barcode-us',
+  'dmg-barcode-us',
+  'mgb-barcode-us',
+  'cgb-agb-barcode-us',
   'agb-001-jpn',
-  'c-agb-001-jpn-1',
+  'c-agb-001-jpn-1_8',
+  'c-agb-001-jpn-1_9',
   'c-agb-001-eur',
   'c-agb-001-usa',
   'gba-001-chn-ique',

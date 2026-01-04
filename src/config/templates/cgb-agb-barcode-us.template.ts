@@ -1,16 +1,16 @@
 import type { TemplateDefinition } from '../types';
 
-const barcodeUs: TemplateDefinition = {
-    id: 'barcode-us',
+const CgbAgbBarcodeUs: TemplateDefinition = {
+    id: 'cgb-agb-barcode-us',
     label: 'CGB/AGB Barcode (US)',
-    svgPath: 'templates/barcode-us.svg',
+    svgPath: 'templates/CGB-GBA_barcode_us.svg',
     defaults: {
         serial: 'AB123456789',
         foreground: '#000000',
         background: '#ffffff',
         stroke: true,
     },
-    filename: values => `agb-cgb-barcode-us-${String(values.serial ?? '').toUpperCase()}.svg`,
+    filename: values => `cgb-agb-barcode-us-${String(values.serial ?? '').toUpperCase()}.svg`,
     fields: [
         {
             id: 'serial',
@@ -46,4 +46,4 @@ const barcodeUs: TemplateDefinition = {
         },
     ]
 };
-export default barcodeUs;
+export default CgbAgbBarcodeUs;
