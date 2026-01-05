@@ -4,6 +4,9 @@ import type { TemplateDefinition } from './types';
 const desiredOrder = [
   'dmg-barcode-us',
   'mgb-barcode-us',
+  'mgb-001-jpn',
+  'c-mgb-001-jpn',
+  'c-mgb-001-noe',
   'cgb-agb-barcode-us',
   'cgb-001-jpn-1',
   'c-cgb-001-jpn-1',
